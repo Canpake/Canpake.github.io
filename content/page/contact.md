@@ -1,7 +1,7 @@
 ---
 title: Contact Info
 subtitle: If you need help or want to chat
-comments: false
+comments: true
 ---
 
 If there's stuff that doesn't quite make sense or seems wrong, feel free to send me a message! While I'll try to respond as soon as I can, do note that there are a *lot* of resources online that can help as well. 
