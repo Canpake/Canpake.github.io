@@ -1,4 +1,4 @@
-baseurl = "https://canpake.gitlab.io"
+baseurl = "https://canpake.github.io"
 contentdir    = "content"
 layoutdir     = "layouts"
 publishdir    = "public"
