@@ -6,4 +6,10 @@ In this section, I'll try to explain what 'dynamic questions' really refer to, a
 
 If you've already made dynamic questions yourself through the QBM, you can probably skim through most of the stuff in this part.
 
-[TODO: Links to each part in this section]
+<br>
+
+### Sub-sections
+{{<toc-tree>}}
+
+
+[TODO: Deal with `>notes` in 1.2]
