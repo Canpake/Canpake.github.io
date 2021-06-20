@@ -16,3 +16,6 @@
         {{ end }}
     </div>
 </footer>
+
+<!-- not part of default geekdoc theme; added to support KaTeX -->
+{{ if .Params.katex}}{{ partial "katex.html" . }}{{ end }}
