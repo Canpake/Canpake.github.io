@@ -1,0 +1,29 @@
+---
+main:
+  - name: Contact Info
+    ref: "other/contact"
+  - name: 1. Introduction
+    ref: "/intro"
+    # icon: "notification"
+    sub:
+      - name: 1.1. What are Dynamic Questions?
+        ref: "/intro/dynamic-questions"
+      - name: 1.2. Using the QBM
+        ref: "/intro/using-the-qbm"
+      - name: 1.3. Formatting Text
+        ref: "/intro/formatting-text"
+      - name: 1.4. Mathematical Expressions with AsciiMath
+        ref: "/intro/asciimath"
+      - name: 1.5. Useful Editor Features
+        ref: "/intro/editor-features"
+  - name: 2. Dynamic Question Design
+    # ref: "/level-2"
+    sub:
+      - name: 2.1. Common Issues with Dynamic Questions
+        # ref: "/level-2/level-2-1"
+      - name: 2.2. General Design Guidelines
+        # ref: "/level-2/level-2-2"
+        sub: 
+          - name: 2.2.1. Context
+          - name: 2.2.2. Formatting
+          - name: 2.2.3. Wording + Detail

@@ -42,7 +42,7 @@ enableGitInfo = true
   # geekdocLogo = "logo.png"
 
   # (Optional, default false) Render menu from data file im 'data/menu/main.yaml'.
-  # geekdocMenuBundle = true
+  geekdocMenuBundle = true
 
   # (Optional, default true) Show page navigation links at the bottom of each
   # docs page (bundle menu only).

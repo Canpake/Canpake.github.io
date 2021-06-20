@@ -1,6 +1,8 @@
 ---
 title: First post!
-date: 2015-01-05
+
+slug: first-post-slug
+weight: -1
 ---
 
 This is my first post, how exciting!
