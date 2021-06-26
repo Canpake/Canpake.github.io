@@ -20,4 +20,4 @@ Please note that this document is **not** meant to be read all at once! I've int
 * The remaining sections will cover more specific situations that arise with certain kinds of math questions. 
 
 If you've already read the [original QBM guide](https://docs.google.com/document/d/16xsDG-wY8beKBJlu3HIUPtWc1J-W7EY13KjDiEcgJhY/edit) and just want a quick look at some new advice with dynamic questions in general, then you might want to begin with [2.1. Common Issues with Dynamic Questions](#21-common-issues-with-dynamic-questions) and [2.2. General Design Guidelines](#22-general-design-guidelines)!
-{{<hint>}}
+{{</hint>}}

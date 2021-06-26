@@ -7,6 +7,7 @@ Dynamic questions are used when we have a good conceptual question that we'd lik
 An example of a dynamic question, viewed several times, is shown below: 
 
 <img src="https://i.imgur.com/W77xlpF.png" width="400px"/>
+<!-- TODO - turn this into separate pictures viewed with <tabs> -->
 
 As you can see in the above image, the question changes each time the question is viewed, with different answers and solutions to go with the quadratic equation. 
 

@@ -32,3 +32,13 @@ main:
             ref: "/2-design/guidelines#222-formatting"
           - name: 2.2.3. Wording + Detail
             ref: "/2-design/guidelines#223-wording--detail"
+  - name: 3. Coding Examples
+    ref: "/3-general-examples"
+    sub: 
+      - name: 3.1. Solving Common Issues
+        ref: "/3-general-examples/solving-issues"
+        sub: 
+          - name: 3.1.1. Unrounded Answers
+            ref: "/3-general-examples/solving-issues/1"
+      - name: 3.2. Example Question 1
+        ref: "/3-general-examples/examples/1"
