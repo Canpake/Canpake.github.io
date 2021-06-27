@@ -35,10 +35,12 @@ main:
   - name: 3. Coding Examples
     ref: "/3-general-examples"
     sub: 
-      - name: 3.1. Solving Common Issues
+      - name: 3.1. Example Question 1
+        ref: "/3-general-examples/examples/1"
+      - name: 3.2. Example Question 2
+        ref: "/3-general-examples/examples/2"
+      - name: 3.3. Solving Common Issues
         ref: "/3-general-examples/solving-issues"
         sub: 
-          - name: 3.1.1. Unrounded Answers
+          - name: 3.3.1. Unrounded Answers
             ref: "/3-general-examples/solving-issues/1"
-      - name: 3.2. Example Question 1
-        ref: "/3-general-examples/examples/1"
