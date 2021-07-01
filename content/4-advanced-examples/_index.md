@@ -15,7 +15,7 @@ I'll try to explain the lines that appear in the code line-by-line, but if there
 {{</hint>}}
 
 **Contents** 
-{{<toc-tree>}}
+{{<toc>}}
 
 The bit below provides a high-level kind of overview on how you can include JS code and libraries in PHP, with a short example JSXGraph demo. It'll give you a better understanding of how the code actually does what it does, and might help you with debugging. 
 
