@@ -33,6 +33,8 @@ echo "Line two<br/>Line three";
 
 --- 
 
+## More on `echo`-ing Tags
+
 As an aside, note that PHP directly puts the `echo`'d string into the HTML document itself, and the document is rendered after *all* the PHP code is run. 
 
 This means you could technically split out tags into separate strings, like this:
