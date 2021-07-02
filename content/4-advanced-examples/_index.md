@@ -105,7 +105,7 @@ Let's first begin by including the scripts required to load the JSXGraph library
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
 ```
 
-Next, we'll make an actual `<div>` element where the drawing box will be contained: 
+Next, we'll make an actual `<div>` element where the drawing box will be contained, and we'll give it an `id` attribute `"box"`: 
 
 ```html
 <div id="box" class="jxgbox" style="width:500px; height:500px;"></div>
@@ -116,19 +116,19 @@ Finally, we'll include a similar script to the one shown in the circle example -
 ```html
 <script>
 // initialise board
-var box = JXG.JSXGraph.initBoard('box', {boundingbox: [-5, 5, 5, -5]});
+var b = JXG.JSXGraph.initBoard('box', {boundingbox: [-5, 5, 5, -5]});
 
 // create two points
-var p1 = box.create('point', [0,0], {name: 'A', size: 4, face: 'o'});
-var p2 = box.create('point', [2,-1], {name: 'B', size: 4, face: 'o'});
+var p1 = b.create('point', [0,0], {name: 'A', size: 4, face: 'o'});
+var p2 = b.create('point', [2,-1], {name: 'B', size: 4, face: 'o'});
 
 // create a circle passing through the two points above
 // note that instead of ['A', 'B'], you could instead use the variable names [p1, p2]
-var circle = box.create('circle', [p1, p2], {strokeColor:'#00ff00',strokeWidth:2});
+var circle = b.create('circle', [p1, p2], {strokeColor:'#00ff00',strokeWidth:2});
 </script>
 ```
 
-The first line sets `b` (for board) to a board with top-left coordinate (-5, 5) and bottom-right coordinate (5, -5). The argument `box` means that it'll look for a `<div>` element with that as its ID - which is the div we wrote earlier.
+The first line sets `b` (for board) to a plane with top-left coordinate (-5, 5) and bottom-right coordinate (5, -5). The argument `box` means that it'll look for a `<div>` element with the `id` attribute `box` - in other words, the element we made earlier.
 
 The following lines then call the `b.create()` function to draw things on the board: 
 - The first argument is the type (e.g. `'point'` or `'circle'`)
