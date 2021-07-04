@@ -46,3 +46,10 @@
     </div>
     {{ end }}
 </div>
+
+
+<!-- Not part of default theme: Add JSXgraph if enabled -->
+{{ if .Params.jsxg }} 
+<script type="text/javascript" charset="UTF-8" src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
+{{ end }}
