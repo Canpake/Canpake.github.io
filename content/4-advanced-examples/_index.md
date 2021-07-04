@@ -1,5 +1,7 @@
 ---
 title: 4. More Coding Examples
+
+jsxg: true
 ---
 
 In this section, I'll go over some more complex examples of questions. These ones will make use of JavaScript (JS) and the [JSXGraph](https://jsxgraph.org/) library in order to form dynamic diagrams/graphs for the question and/or solution. 
@@ -144,12 +146,6 @@ A few things in the example circle script on the website are... outdated. A few 
 {{</hint>}}
 
 If we call all of that, this is what we end up with - similar to the example!
-
-<script type="text/javascript" charset="UTF-8" src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js">
-
-</script>
-
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
 
 <div id="box" class="jxgbox" style="width:500px; height:500px;"></div>
 
