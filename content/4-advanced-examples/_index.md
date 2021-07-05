@@ -140,7 +140,7 @@ The following lines then call the `b.create()` function to draw things on the bo
 {{<hint info>}}
 A few things in the example circle script on the website are... outdated. A few things to note when using the library: 
 
-- For best results, make a **square** `<div>` (where width and height are equal), and use a bounding box with equal x/y-ranges. 
+- When doing geometry, for best results, make a **square** `<div>` (where width and height are equal), and use a bounding box with equal x/y-ranges. 
 - `createElement` is no different from `create` - in fact, you'll get a warning if you use the former.
 - For elements like circles that require other points/shapes to be constructed, you can either use the variable (`p1`, `p2`), or name given to the shape ("A", "B"). I recommend using the variable rather than the name, mainly because it's much clearer.
 {{</hint>}}
