@@ -36,7 +36,7 @@ https://floating-point-gui.de/
 
 But, in a nutshell, arithmetic in computers done in base 2 rather than base 10, which can lead to some rounding errors on decimals like these ones.
 
-Generally, you'll only need to worry about this in PHP when very small decimals are involved. Once again, consider rounding your values or designing the question to avoid this situation entirely.
+Generally, this issue only arises occasionally when dealing with decimals - however, it's always important to be aware of this possibility. Once again, consider rounding your values or designing the question to avoid this situation entirely.
 
 ---
 
