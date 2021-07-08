@@ -32,6 +32,7 @@ main:
             ref: "/2-design/guidelines#222-formatting"
           - name: 2.2.3. Wording + Detail
             ref: "/2-design/guidelines#223-wording--detail"
+# TODO: Coding examples to move to sections 4/5; Section 3 should be some coding stuff like library inclusion + JSXGraph
   - name: 3. Coding Examples
     ref: "/3-general-examples"
     sub: 
