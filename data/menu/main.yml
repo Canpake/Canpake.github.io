@@ -44,6 +44,16 @@ main:
         sub: 
           - name: 3.3.1. Unrounded Answers
             ref: "/3-general-examples/solving-issues/1"
+          - name: 3.3.2. Floating-point errors
+            ref: "/3-general-examples/solving-issues/2"
+          - name: 3.3.3. Weird random values
+            ref: "/3-general-examples/solving-issues/3"
+          - name: 3.3.4. Insufficient randomisation
+            ref: "/3-general-examples/solving-issues/4"
+          - name: 3.3.5. Inconsistent difficulty
+            ref: "/3-general-examples/solving-issues/5"
+          - name: 3.3.6. (MCQs) Inappropriate choices
+            ref: "/3-general-examples/solving-issues/6"
   - name: 4. More Coding Examples
     ref: '/4-advanced-examples'
     sub:
