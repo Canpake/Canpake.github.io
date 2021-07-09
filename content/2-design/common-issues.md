@@ -47,7 +47,7 @@ When writing a static question, the numbers chosen generally follow a number of 
 - If a question involves finding GCD/LCM of 2 numbers, the values given should be different
 - When calculating an answer in currency, the final answer should be in the proper denominations (i.e. not having 0.001 USD, or 0.5 JPY).
 
-Some of these are harder to deal with - such as picking 3 random points on a grid and making sure they form a triangle, not a line. The randomisation methods covered in [4.1. Introducing 'Randomness'](#41-introducing-randomness) may be able to help out with this.
+Some of these are harder to deal with - such as picking 3 random points on a grid and making sure they form a triangle, not a line. I'll attempt to cover some similar scenarios in [Section 3](/3-coding-techniques), and how you can get around this.
 
 If you forget to check for these conditions when randomising your values, then often you end up with a question that either sounds weird, or no longer assesses what was originally intended:
 
@@ -93,7 +93,7 @@ On the other hand, care is also needed when giving wrong answers that relate to 
 
 <img src="https://i.imgur.com/X3F6wXP.png" width="300px"/>
 
-This is an issue even if it rarely occurs, as thousands of students are going to be seeing these questions, and it's likely that they'll come across the problem at least once.
+As thousands of students are going to be seeing these questions, you should always make sure that there is no chance that a question will end up having this issue. 
 
-A few techniques in [4.1. Introducing 'Randomness'](#41-introducing-randomness) can help you avoid getting duplicate values, but once again, the best option is to design your question such that it never comes across this issue in the first place.
+A few techniques in [3.1. Introducing 'Randomness'](/3-coding-techniques/introducing-randomness) can help you avoid getting duplicate values, but once again, the best option is to design your question such that it never comes across this issue in the first place.
   
