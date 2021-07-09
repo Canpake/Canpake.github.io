@@ -33,30 +33,32 @@ main:
           - name: 2.2.3. Wording + Detail
             ref: "/2-design/guidelines#223-wording--detail"
 # TODO: Coding examples to move to sections 4/5; Section 3 should be some coding stuff like library inclusion + JSXGraph
-  - name: 3. Coding Examples
-    ref: "/3-general-examples"
+  - name: 3. Coding Techniques
+    ref: "/3-coding-techniques"
+  - name: 4. DQ Examples
+    ref: "/4-general-examples"
     sub: 
-      - name: 3.1. Example Question 1
-        ref: "/3-general-examples/examples/1"
-      - name: 3.2. Example Question 2
-        ref: "/3-general-examples/examples/2"
-      - name: 3.3. Solving Common Issues
-        ref: "/3-general-examples/solving-issues"
+      - name: 4.1. Example Question 1
+        ref: "/4-general-examples/examples/1"
+      - name: 4.2. Example Question 2
+        ref: "/4-general-examples/examples/2"
+      - name: 4.3. Solving Common Issues
+        ref: "/4-general-examples/solving-issues"
         sub: 
-          - name: 3.3.1. Unrounded Answers
-            ref: "/3-general-examples/solving-issues/1"
-          - name: 3.3.2. Floating-point errors
-            ref: "/3-general-examples/solving-issues/2"
-          - name: 3.3.3. Weird random values
-            ref: "/3-general-examples/solving-issues/3"
-          - name: 3.3.4. Insufficient randomisation
-            ref: "/3-general-examples/solving-issues/4"
-          - name: 3.3.5. Inconsistent difficulty
-            ref: "/3-general-examples/solving-issues/5"
-          - name: 3.3.6. (MCQs) Inappropriate choices
-            ref: "/3-general-examples/solving-issues/6"
-  - name: 4. More Coding Examples
-    ref: '/4-advanced-examples'
+          - name: 4.3.1. Unrounded Answers
+            ref: "/4-general-examples/solving-issues/1"
+          - name: 4.3.2. Floating-point errors
+            ref: "/4-general-examples/solving-issues/2"
+          - name: 4.3.3. Weird random values
+            ref: "/4-general-examples/solving-issues/3"
+          - name: 4.3.4. Insufficient randomisation
+            ref: "/4-general-examples/solving-issues/4"
+          - name: 4.3.5. Inconsistent difficulty
+            ref: "/4-general-examples/solving-issues/5"
+          - name: 4.3.6. (MCQs) Inappropriate choices
+            ref: "/4-general-examples/solving-issues/6"
+  - name: 5. More DQ Examples
+    ref: '/5-advanced-examples'
     sub:
-      - name: 4.1. Example Question 3
-        ref: '/4-advanced-examples/examples/1'
+      - name: 5.1. Example Question 3
+        ref: '/5-advanced-examples/examples/1'
