@@ -3,6 +3,7 @@ title: 3.1. Introducing 'Randomness'
 
 katex: true
 markup: "mmark"
+geekdocCollapseSection: true
 ---
 
 Suppose you want a random number between 2 and 7 - with PHP, there are 2 main ways you could do this:
@@ -30,7 +31,10 @@ So uh - at this point you might be asking why the second method even exists. It'
 - The range of values you're choosing from are a **lot** more flexible - they don't even have to be numbers!
 - You can choose more than 1 value from the shuffled array, **without replacement** - this is very useful for making sure MCQ options are different. 
 
-> **Important Note**: As you might expect, the `shuffle()` function takes longer the more values there are in an array. **Avoid** using it on arrays that are really big - like `range(0, 10000)`!
+{{<hint info>}}
+As you might expect, the `shuffle()` function takes longer the more values there are in an array. \
+Try to **avoid using them on big arrays** when other options are available - like `range(0, 10000)`!
+{{</hint>}}
 
 ---
 
@@ -117,18 +121,25 @@ Other ways of generating that array are valid too - in this case, `array_diff` w
 
 ---
 
-Note that the above exercises are very simple cases associated with random generation. In actual questions, the restrictions are often not as obvious (not to mention more complex)! 
+In actual questions, it's often best to place restrictions on the random numbers that can be generated, in order to keep the calculations in the question simple (e.g. always integer answers). There are a lot of benefits to doing this - it helps keep questions consistent in difficulty, while making them less tedious for students; and perhaps most importantly, **it makes the question much easier to code!**
 
-This "controlled randomisation" is often done in order to make question calculations 'clean' and easier to do by hand (e.g. always integer answers). This makes questions consistent in difficulty and less tedious for students - moreover, they generally make the question much easier to code and debug!
+However, note that the above exercises are very simple cases associated with random generation - in practice, you'll often find that the 'conditions' behind the random values aren't as obvious. This is particularly the case when the values are used in other contexts like coordinates, or the coefficients for a polynomial!
 
-Here are a few scenarios you might come across: 
+In the following pages, I'll look at some common scenarios you might come across in various contexts: 
 
-- Generating integers X, Y that are not coprime
-- Generating integers X, Y such that X% of Y is always a whole number
-- Generating integers X, Y, Z such that they form a Pythagorean triple
+<!-- TODO: Link for each one of these -->
+<!-- Perhaps first 3 should be in the next page, and then the other 3 should be separate pages? -->
 
-Numbers may further be used in a variety of contexts like coordinates, or the coefficients for a polynomial - these often require some extra thought! A few more scenarios to think about: 
+- 3.1.1. Arithmetic \
+  \> Generating integers X, Y that are not coprime \
+  \> Generating integers X, Y such that X% of Y is always a whole number
 
-- Generating two linear lines (in the form $$y = mx + c$$) that intersect at **integer** coordinates
-- Generating a polynomial that has 2 easy-to-find (i.e. integer) roots
-- Generating 3 coordinates that form a **non-right-angled** triangle
+- 3.1.2. Algebra and Graphs \
+  \> Generating two linear lines (in the form $$y = mx + c$$) that intersect at **integer** coordinates \
+  \> Generating a polynomial that has 2 easy-to-find (i.e. integer) roots
+
+- 3.1.3. Geometry \
+  \> Generating integers that form Pythagorean triples \
+  \> Generating 3 coordinates that form a **non-right-angled** triangle
+
+<!-- TODO: 3.2 should be formatting -->

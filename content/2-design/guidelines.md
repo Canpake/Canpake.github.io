@@ -1,5 +1,6 @@
 ---
 title: 2.2. General Design Guidelines
+geekdocCollapseSection: true
 ---
 
 Apart from the issues with code in a dynamic question, there also a few general things to consider when designing and writing a question. The guidelines below can be split into 3 main groups, and in summary they are to: 
