@@ -37,6 +37,20 @@ main:
     sub: 
       - name: 3.1. Introducing Randomness
         ref: "/3-coding-techniques/introducing-randomness"
+        sub: 
+          - name: 3.1.1. Arithmetic
+            ref: "/3-coding-techniques/introducing-randomness/arithmetic"
+          - name: 3.1.2. Algebra + Graphs
+            ref: "/3-coding-techniques/introducing-randomness/algebra"
+          - name: 3.1.3. Geometry
+            ref: "/3-coding-techniques/introducing-randomness/geometry"
+      - name: 3.2. Formatting Values
+        ref: "/3-coding-techniques/formatting"
+        sub: 
+          - name: 3.2.1. Rounding Values
+            ref: "/3-coding-techniques/formatting/rounding"
+          - name: 3.2.1. Algebraic Expressions
+            ref: "/3-coding-techniques/formatting/expressions"
   - name: 4. DQ Examples
     ref: "/4-general-examples"
     sub: 

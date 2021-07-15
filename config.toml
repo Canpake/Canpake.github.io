@@ -2,7 +2,7 @@ baseurl = "https://canpake.github.io/"
 contentdir    = "content"
 layoutdir     = "layouts"
 publishdir    = "public"
-title = "DQ Guide"
+title = "Dynamic Questions Guide"
 canonifyurls  = true
 
 DefaultContentLanguage = "en"
