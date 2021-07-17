@@ -46,6 +46,7 @@ When writing a static question, the numbers chosen generally follow a number of 
 
 - If a question involves finding GCD/LCM of 2 numbers, the values given should be different
 - When calculating an answer in currency, the final answer should be in the proper denominations (i.e. not having 0.001 USD, or 0.5 JPY).
+- Extra formatting is required for some contexts - for example, if you're randomising the minutes on a clock, make sure to display the time as 15:08, rather than 15:8!
 
 Some of these are harder to deal with - such as picking 3 random points on a grid and making sure they form a triangle, not a line. I'll attempt to cover some similar scenarios in [Section 3](/3-coding-techniques), and how you can get around this.
 
