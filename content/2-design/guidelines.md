@@ -17,15 +17,15 @@ While I'll go into detail for each part, **the key idea above all of this is to 
 
 It's important to take into account how the questions you're writing will be used - this will help with a lot of design decisions you make. 
 
-{{<hint info>}}
+<!-- {{<hint info>}}
 Just a bit of background on the idea for these dynamic questions: 
 
 Currently, the idea is that they'll be used in admissions tests for students from Year 7 to 10. 
 
-<!-- We're hoping we can further generalise this format so that they can be used to make customisable maths assessments, but that's a topic to discuss later. -->
+We're hoping we can further generalise this format so that they can be used to make customisable maths assessments, but that's a topic to discuss later.
 
 For each year group, the test will have 30 question 'slots', each reserved for a particular topic. Each question slot will be filled with 1 of the 3 dynamic questions for that topic. 
-{{</hint>}}
+{{</hint>}} -->
 
 The bottom line is that a lot of randomisation will be involved when dynamic questions are used to generate assessments and tests. As a result, it's important to ensure that questions are consistent in difficulty and style so that we can maintain fairness of testing. 
 
