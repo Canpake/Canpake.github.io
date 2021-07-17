@@ -1,5 +1,5 @@
 ---
-title: 3.1. Introducing 'Randomness'
+title: 3.2. Introducing 'Randomness'
 
 katex: true
 markup: "mmark"

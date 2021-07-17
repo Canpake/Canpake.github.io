@@ -1,5 +1,5 @@
 ---
-title: 3.2. Formatting Values
+title: 3.3. Formatting Values
 geekdocCollapseSection: true
 ---
 

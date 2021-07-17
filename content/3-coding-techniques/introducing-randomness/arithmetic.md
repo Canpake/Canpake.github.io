@@ -1,5 +1,5 @@
 ---
-title: 3.1.1. Randomising Arithmetic
+title: 3.2.1. Randomising Arithmetic
 ---
 
 > -- Incomplete Section
