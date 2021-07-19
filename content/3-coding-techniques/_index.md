@@ -39,8 +39,8 @@ A PHP 'library', in a nutshell, refers to a separate set of files that contain v
 
 We currently have two libraries set up for use: 
 1. The [MathPHP](https://github.com/markrogoyski/math-php) library
-2. A 'Dynamic Questions' library I wrote myself for more specific use cases :P
+2. LibDQ, a library specifically written for writing 'Dynamic Questions' to cover more specific use cases
 
 You can explore the MathPHP link above if you'd like to get a feel for the kinds of functions that the library will use. 
 
-I'll also go over the use cases of the library I wrote myself - since the functions were made specifically for dynamic questions, you'll generally be able to use them directly in your questions when required. (At least, I hope I was able to design them that way!)
+In the subsections of 3.1, I'll also go over the usage of the LibDQ library to more specific detail; there are only a handful of functions in that library, and they cover use cases that can be applied to a very wide range of questions. 
