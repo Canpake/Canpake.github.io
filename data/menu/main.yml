@@ -37,6 +37,11 @@ main:
     sub: 
       - name: 3.1. Using Libraries
         ref: "/3-coding-techniques/using-libraries"
+        sub: 
+          - name: 3.1.1. LibDQ
+            ref: "/3-coding-techniques/using-libraries/libdq"
+          - name: 3.1.2. MathPHP
+            ref: "/3-coding-techniques/using-libraries/mathphp"
       - name: 3.2. Introducing Randomness
         ref: "/3-coding-techniques/introducing-randomness"
         sub: 
