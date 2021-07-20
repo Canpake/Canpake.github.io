@@ -43,4 +43,4 @@ We currently have two libraries set up for use:
 
 You can explore the MathPHP link above if you'd like to get a feel for the kinds of functions that the library will use. 
 
-In the subsections of 3.1, I'll also go over the usage of the LibDQ library to more specific detail; there are only a handful of functions in that library, and they cover use cases that can be applied to a very wide range of questions. 
+In [3.1.1. LibDQ](/3-coding-techniques/using-libraries/libdq), I'll also go over the usage of the LibDQ library in more specific detail; there are only a handful of functions in that library, and they cover use cases that can be applied to a very wide range of questions. 
