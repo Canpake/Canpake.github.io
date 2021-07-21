@@ -2,7 +2,6 @@
 title: 3.1.1 LibDQ
 
 katex: true
-markup: "mmark"
 ---
 
 The LibDQ library (as of the moment) has two main use cases: 
@@ -12,12 +11,7 @@ The LibDQ library (as of the moment) has two main use cases:
 
 Below, I'll explain the relevant functions that provide the above functionality:
 
-- [`sigfig`](#sigfig)
-  - [Example Usage](#example-usage)
-- [`gen_expr`](#gen_expr)
-  - [Example Usage](#example-usage-1)
-- [`gen_eq`](#gen_eq)
-  - [Example Usage](#example-usage-2)
+{{<toc>}}
 
 ---
 
@@ -59,7 +53,7 @@ function gen_expr($term_array)
 
 A function that generates an algebraic expression neatly, for use in AsciiMath. 
 
-For example, suppose you have some random numbers $$A, B, C, D$$ and want to use them in the expression below: 
+For example, suppose you have some random numbers  \\(A, B, C, D\\) and want to use them in the expression below: 
 
 $$Ax + By + Cz + D$$
 
@@ -79,8 +73,8 @@ The function takes in one argument as an associative array that has keys and val
 - `$term_array` - An array with (terms) => (coefficients); \
   Coefficient-term pairs will be displayed in order given.
   - The terms, as keys, should be strings; they can be anything valid for AsciiMath. Some valid terms include:
-      - `"x"` - used for the term $$x$$
-      - `"log(y^2)"` - used for the term $$\log(y^2)$$
+      - `"x"` - used for the term \\(x\\)
+      - `"log(y^2)"` - used for the term \\(\log(y^2)\\)
       - `""` - used for the constant term
   - The coefficients, as values, should either be a string or number: 
       - If a number, its value will be parsed and displayed appropriately - 0s removed, 1s removed if term is not `""`, etc.
@@ -100,7 +94,6 @@ $B = mt_rand(-9, 9);
 $C = mt_rand(-9, 9);
 $D = mt_rand(-9, 9);
 
-// Generate an equation for use in AsciiMath
 $equation = $lib::gen_expr(["x" => $A, 
                             "y" => $B, 
                             "z" => $C, 
@@ -114,19 +107,31 @@ echo "If `x = y = z = 4`, what is the value of `$equation`?";
 
 ## `gen_eq`
 
-> -- Incomplete Section
-
 ```php
-/**
- * A function that generates a simple linear equation and returns an appropriate string.
- * @param $lhs - Array, (terms => coefficients); displayed in order given, left of =.
- * @param $rhs - Array, (terms => coefficients); displayed in order given, right of =.
- * @param $backticks - Boolean. Whether to encase the result in backticks. False by default.
- * @return string - A string representing the function.
- */
 function gen_eq($lhs, $rhs, $backticks=false)
 ```
 
+This is essentially a convenient version of the function above for use in equations, rather than expressions. 
+
+The values taken in are as follows: 
+- `$lhs` - An associative array, representing the expression on the left hand side of the `=` sign. 
+- `$rhs` - An associative array, representing the expression on the right hand side of the `=` sign. 
+- `$backticks` - Can be `true`; defaults to `false`. Controls whether the result is returned with or without backticks - generally used for convenience.
+
+The function returns a string of the equation that will be displayed properly with AsciiMath.
+
 ### Example Usage
 
+```php
+$lib = _MD('lib_DQ')
 
+// Generate a linear equation y = Ax + B 
+$A = mt_rand(-9, 9);
+$B = mt_rand(-9, 9);
+
+$equation = $lib::gen_expr(["y" => 1], 
+                           ["x" => $A, "" => $B]);
+
+// Use the equation in a question
+echo "Which of the following lines is a graph of `$equation`?";
+```
