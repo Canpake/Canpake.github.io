@@ -63,7 +63,7 @@ One simple option is to simply stick the numbers in front of the variables with 
 
 $$(3)x + (0)y + (-1)z + (1)$$
 
-What `gen_expr` does is remove all the unnecessary brackets, terms that evaluate to 0, and coefficients that are 1; essentially it could be used to transform the above expression into the one below: 
+What `gen_expr` does is remove all the unnecessary brackets, terms that evaluate to 0, and coefficients that are 1 - transforming the above expression into the one below: 
 
 $$3x - z + 1$$
 
@@ -108,14 +108,15 @@ echo "If `x = y = z = 4`, what is the value of `$equation`?";
 ## `gen_eq`
 
 ```php
-function gen_eq($lhs, $rhs, $backticks=false)
+function gen_eq($lhs, $rhs, $operator="=", $backticks=false)
 ```
 
-This is essentially a convenient version of the function above for use in equations, rather than expressions. 
+This is essentially a convenient version of the function above for use in equations (or inequalities). 
 
 The values taken in are as follows: 
-- `$lhs` - An associative array, representing the expression on the left hand side of the `=` sign. 
-- `$rhs` - An associative array, representing the expression on the right hand side of the `=` sign. 
+- `$lhs` - An associative array, representing the expression on the left hand side of the operator.
+- `$rhs` - An associative array, representing the expression on the right hand side of the operator. 
+- `$operator` - A string; defaults to `=`. The operator to display between the expressions from `$lhs` and `$rhs`.
 - `$backticks` - Can be `true`; defaults to `false`. Controls whether the result is returned with or without backticks - generally used for convenience.
 
 The function returns a string of the equation that will be displayed properly with AsciiMath.
@@ -125,12 +126,13 @@ The function returns a string of the equation that will be displayed properly wi
 ```php
 $lib = _MD('lib_DQ')
 
-// Generate a linear equation y = Ax + B 
+// Generate a quadratic equation y = Ax^2 + Bx + C 
 $A = mt_rand(-9, 9);
 $B = mt_rand(-9, 9);
+$C = mt_rand(-9, 9);
 
 $equation = $lib::gen_expr(["y" => 1], 
-                           ["x" => $A, "" => $B]);
+                           ["x^2" => $A, "x" => $B, "" => $C]);
 
 // Use the equation in a question
 echo "Which of the following lines is a graph of `$equation`?";
