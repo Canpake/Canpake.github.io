@@ -505,6 +505,15 @@ Example Usage
 
 <span class=c1>// Use the equation in a question
 </span><span class=c1></span><span class=k>echo</span> <span class=s2>&#34;Which of the following lines is a graph of `</span><span class=si>$equation</span><span class=s2>`?&#34;</span><span class=p>;</span>
+</code></pre></div><p>Another use case with an inequality:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$lib</span> <span class=o>=</span> <span class=nx>_MD</span><span class=p>(</span><span class=s1>&#39;lib_DQ&#39;</span><span class=p>)</span>
+
+<span class=c1>// Directly display an inequality, Asin(x) + Bcos(x) &lt; C
+</span><span class=c1></span><span class=nv>$A</span> <span class=o>=</span> <span class=nx>mt_rand</span><span class=p>(</span><span class=o>-</span><span class=mi>9</span><span class=p>,</span> <span class=mi>9</span><span class=p>);</span>
+<span class=nv>$B</span> <span class=o>=</span> <span class=nx>mt_rand</span><span class=p>(</span><span class=o>-</span><span class=mi>9</span><span class=p>,</span> <span class=mi>9</span><span class=p>);</span>
+<span class=nv>$C</span> <span class=o>=</span> <span class=nx>mt_rand</span><span class=p>(</span><span class=o>-</span><span class=mi>9</span><span class=p>,</span> <span class=mi>9</span><span class=p>);</span>
+
+<span class=k>echo</span> <span class=nv>$lib</span><span class=o>::</span><span class=na>gen_expr</span><span class=p>([</span><span class=s2>&#34;sin(x)&#34;</span> <span class=o>=&gt;</span> <span class=nv>$A</span><span class=p>,</span> <span class=s2>&#34;cos(x)&#34;</span> <span class=o>=&gt;</span> <span class=nv>$B</span><span class=p>],</span>  <span class=p>[</span><span class=s2>&#34;&#34;</span> <span class=o>=&gt;</span> <span class=nv>$C</span><span class=p>],</span> <span class=nv>$operator</span><span class=o>=</span><span class=s2>&#34;&lt;&#34;</span><span class=p>,</span> <span class=nv>$backticks</span><span class=o>=</span><span class=k>true</span><span class=p>);</span>
 </code></pre></div>
 </article>
 <div class="gdoc-page__footer flex flex-wrap justify-between">
