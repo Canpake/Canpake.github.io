@@ -423,7 +423,7 @@ Example Usage
 <p>Displaying this properly in AsciiMath for any random coefficients/constants is difficult - you have to consider how to format the positive, zero and negative coefficients properly.</p>
 <p>One simple option is to simply stick the numbers in front of the variables with appropriate brackets - however, you can end up with some messy and difficult-to-understand expressions, like this:</p>
 <p>$$(3)x + (0)y + (-1)z + (1)$$</p>
-<p>What <code>gen_expr</code> does is remove all the unnecessary brackets, terms that evaluate to 0, and coefficients that are 1; essentially it could be used to transform the above expression into the one below:</p>
+<p>What <code>gen_expr</code> does is remove all the unnecessary brackets, terms that evaluate to 0, and coefficients that are 1 - transforming the above expression into the one below:</p>
 <p>$$3x - z + 1$$</p>
 <p>To use the function, you&rsquo;ll need to know about how <a class=gdoc-markdown__link href=https://www.php.net/manual/en/language.types.array.php>associative arrays</a> work. The important thing to note is that keys and values can be defined; each key points to a particular value, and the keys must be unique.</p>
 <p>The function takes in one argument as an associative array that has keys and values:</p>
@@ -477,12 +477,13 @@ Example Usage
 <a data-clipboard-text=https://canpake.github.io/3-coding-techniques/using-libraries/libdq/#gen_eq class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor gen_eq" href=#gen_eq><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
 </a>
 </h2>
-</div><div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>function</span> <span class=nf>gen_eq</span><span class=p>(</span><span class=nv>$lhs</span><span class=p>,</span> <span class=nv>$rhs</span><span class=p>,</span> <span class=nv>$backticks</span><span class=o>=</span><span class=k>false</span><span class=p>)</span>
-</code></pre></div><p>This is essentially a convenient version of the function above for use in equations, rather than expressions.</p>
+</div><div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>function</span> <span class=nf>gen_eq</span><span class=p>(</span><span class=nv>$lhs</span><span class=p>,</span> <span class=nv>$rhs</span><span class=p>,</span> <span class=nv>$operator</span><span class=o>=</span><span class=s2>&#34;=&#34;</span><span class=p>,</span> <span class=nv>$backticks</span><span class=o>=</span><span class=k>false</span><span class=p>)</span>
+</code></pre></div><p>This is essentially a convenient version of the function above for use in equations (or inequalities).</p>
 <p>The values taken in are as follows:</p>
 <ul>
-<li><code>$lhs</code> - An associative array, representing the expression on the left hand side of the <code>=</code> sign.</li>
-<li><code>$rhs</code> - An associative array, representing the expression on the right hand side of the <code>=</code> sign.</li>
+<li><code>$lhs</code> - An associative array, representing the expression on the left hand side of the operator.</li>
+<li><code>$rhs</code> - An associative array, representing the expression on the right hand side of the operator.</li>
+<li><code>$operator</code> - A string; defaults to <code>=</code>. The operator to display between the expressions from <code>$lhs</code> and <code>$rhs</code>.</li>
 <li><code>$backticks</code> - Can be <code>true</code>; defaults to <code>false</code>. Controls whether the result is returned with or without backticks - generally used for convenience.</li>
 </ul>
 <p>The function returns a string of the equation that will be displayed properly with AsciiMath.</p>
@@ -494,12 +495,13 @@ Example Usage
 </h3>
 </div><div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$lib</span> <span class=o>=</span> <span class=nx>_MD</span><span class=p>(</span><span class=s1>&#39;lib_DQ&#39;</span><span class=p>)</span>
 
-<span class=c1>// Generate a linear equation y = Ax + B 
+<span class=c1>// Generate a quadratic equation y = Ax^2 + Bx + C 
 </span><span class=c1></span><span class=nv>$A</span> <span class=o>=</span> <span class=nx>mt_rand</span><span class=p>(</span><span class=o>-</span><span class=mi>9</span><span class=p>,</span> <span class=mi>9</span><span class=p>);</span>
 <span class=nv>$B</span> <span class=o>=</span> <span class=nx>mt_rand</span><span class=p>(</span><span class=o>-</span><span class=mi>9</span><span class=p>,</span> <span class=mi>9</span><span class=p>);</span>
+<span class=nv>$C</span> <span class=o>=</span> <span class=nx>mt_rand</span><span class=p>(</span><span class=o>-</span><span class=mi>9</span><span class=p>,</span> <span class=mi>9</span><span class=p>);</span>
 
 <span class=nv>$equation</span> <span class=o>=</span> <span class=nv>$lib</span><span class=o>::</span><span class=na>gen_expr</span><span class=p>([</span><span class=s2>&#34;y&#34;</span> <span class=o>=&gt;</span> <span class=mi>1</span><span class=p>],</span> 
-                           <span class=p>[</span><span class=s2>&#34;x&#34;</span> <span class=o>=&gt;</span> <span class=nv>$A</span><span class=p>,</span> <span class=s2>&#34;&#34;</span> <span class=o>=&gt;</span> <span class=nv>$B</span><span class=p>]);</span>
+                           <span class=p>[</span><span class=s2>&#34;x^2&#34;</span> <span class=o>=&gt;</span> <span class=nv>$A</span><span class=p>,</span> <span class=s2>&#34;x&#34;</span> <span class=o>=&gt;</span> <span class=nv>$B</span><span class=p>,</span> <span class=s2>&#34;&#34;</span> <span class=o>=&gt;</span> <span class=nv>$C</span><span class=p>]);</span>
 
 <span class=c1>// Use the equation in a question
 </span><span class=c1></span><span class=k>echo</span> <span class=s2>&#34;Which of the following lines is a graph of `</span><span class=si>$equation</span><span class=s2>`?&#34;</span><span class=p>;</span>
