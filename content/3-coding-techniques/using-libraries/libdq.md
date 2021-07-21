@@ -137,3 +137,16 @@ $equation = $lib::gen_expr(["y" => 1],
 // Use the equation in a question
 echo "Which of the following lines is a graph of `$equation`?";
 ```
+
+Another use case with an inequality: 
+
+```php
+$lib = _MD('lib_DQ')
+
+// Directly display an inequality, Asin(x) + Bcos(x) < C
+$A = mt_rand(-9, 9);
+$B = mt_rand(-9, 9);
+$C = mt_rand(-9, 9);
+
+echo $lib::gen_expr(["sin(x)" => $A, "cos(x)" => $B],  ["" => $C], $operator="<", $backticks=true);
+```
