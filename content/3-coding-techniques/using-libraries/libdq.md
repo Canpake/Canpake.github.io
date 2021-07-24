@@ -4,10 +4,11 @@ title: 3.1.1 LibDQ
 katex: true
 ---
 
-The LibDQ library (as of the moment) has two main use cases: 
+The LibDQ library (as of the moment) has only a few main use cases: 
 
 1. Rounding numbers to significant figures (`sigfig`)
-2. Displaying algebraic expressions and equations properly (`gen_expr`, and `gen_eq`)
+2. Formatting algebraic expressions and equations properly (`gen_expr`, and `gen_eq`)
+3. Simplifying fractions (`gen_frac`)
 
 Below, I'll explain the relevant functions that provide the above functionality:
 
@@ -117,7 +118,7 @@ The values taken in are as follows:
 - `$lhs` - An associative array, representing the expression on the left hand side of the operator.
 - `$rhs` - An associative array, representing the expression on the right hand side of the operator. 
 - `$operator` - A string; defaults to `=`. The operator to display between the expressions from `$lhs` and `$rhs`.
-- `$backticks` - Can be `true`; defaults to `false`. Controls whether the result is returned with or without backticks - generally used for convenience.
+- `$backticks` - Boolean; defaults to `false`. Controls whether the result is returned with or without backticks - generally used for convenience.
 
 The function returns a string of the equation that will be displayed properly with AsciiMath.
 
@@ -149,4 +150,48 @@ $B = mt_rand(-9, 9);
 $C = mt_rand(-9, 9);
 
 echo $lib::gen_expr(["sin(x)" => $A, "cos(x)" => $B],  ["" => $C], $operator="<", $backticks=true);
+```
+
+
+## `gen_frac`
+
+```php
+function gen_frac($numer, $denom, $include_plus=false)
+```
+
+A function that displays a fraction properly, given its numerator and denominator (as integers). 
+
+The values taken in are as follows: 
+- `$numer` - Integer. Numerator of the fraction.
+- `$denom` - Integer. Denominator of the fraction. Can't be 0 (will return improper values otherwise).
+- `$include_plus` - Boolean; defaults to `false`. Whether to include an initial '+' if the coefficient is positive.
+  - This is useful for cases where the fraction will not be the first term in an expression. 
+
+The function can either return an **integer** or a **string**: \
+An integer is returned if the fraction evaluates to a whole number; \
+A string is returned otherwise, representing the most simplified version of the fraction.
+
+### Example Usage
+
+```php
+// Question: Volume of sphere with random radius
+$radius = mt_rand(3, 12);
+$question_text = "What is the volume of a sphere with radius $radius?";
+echo $question_text;
+
+$rad_cubed = pow($var1, 3);
+
+// Use the LibDQ library and generate fractions
+$lib = _MD('lib_dq');
+
+$answer_frac = $lib::gen_frac(4 * $rad_cubed, 3);   // 4r^3/3, simplified
+$answer = "`$answer_frac pi`";
+
+$solution = "Given radius `r`, volume of sphere is `4/3*pi*r^3` </br>"
+          . "So `4/3*pi*($var1)^3 = $answer_frac pi`";
+
+$wrong = ["`" . $lib::gen_frac(  $rad_cubed, 3) . " pi`",
+          "`" . $lib::gen_frac(2*$rad_cubed, 3) . " pi`",
+          "`" . $lib::gen_frac(  $rad_cubed, 2) . " pi`",
+          "`" . $lib::gen_frac(3*$rad_cubed, 2) . " pi`"];
 ```
