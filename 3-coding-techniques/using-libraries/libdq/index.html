@@ -4,8 +4,8 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=color-scheme content="light dark">
 <meta name=description content="The LibDQ library (as of the moment) has only a few main use cases:
- Rounding numbers to significant figures (sigfig) Formatting algebraic expressions and equations properly (gen_expr, and gen_eq) Simplifying fractions (gen_frac)  Below, I&rsquo;ll explain the relevant functions that provide the above functionality:
-   sigfig  Example Usage   gen_expr  Example Usage   gen_eq  Example Usage   gen_frac  Example Usage        sigfig    function sigfig($value, $digits) This function was introduced as an example in the previous page, but I&rsquo;ll formally define it here for clarity:">
+ Rounding numbers to significant figures (sigfig) Simplifying square roots (simplify_sqrt) Formatting algebraic expressions and equations properly (gen_expr, and gen_eq) Simplifying fractions (gen_frac)  Below, I&rsquo;ll explain the relevant functions that provide the above functionality:
+   sigfig  Example Usage   simplify_sqrt  Example Usage   gen_expr  Example Usage   gen_eq  Example Usage   gen_frac  Example Usage        sigfig    function sigfig($value, $digits) This function was introduced as an example in the previous page, but I&rsquo;ll formally define it here for clarity:">
 <title>3.1.1 LibDQ | Dynamic Questions Guide</title>
 <link rel=icon href=https://canpake.github.io/favicon/favicon-32x32.png type=image/x-icon>
 <script src=https://canpake.github.io/js/darkmode-ce906ea916.min.js></script>
@@ -360,6 +360,7 @@ hidden-mobile" itemprop=breadcrumb>
 <p>The LibDQ library (as of the moment) has only a few main use cases:</p>
 <ol>
 <li>Rounding numbers to significant figures (<code>sigfig</code>)</li>
+<li>Simplifying square roots (<code>simplify_sqrt</code>)</li>
 <li>Formatting algebraic expressions and equations properly (<code>gen_expr</code>, and <code>gen_eq</code>)</li>
 <li>Simplifying fractions (<code>gen_frac</code>)</li>
 </ol>
@@ -370,19 +371,24 @@ hidden-mobile" itemprop=breadcrumb>
 <li><a href=#example-usage>Example Usage</a></li>
 </ul>
 </li>
-<li><a href=#gen_expr><code>gen_expr</code></a>
+<li><a href=#simplify_sqrt><code>simplify_sqrt</code></a>
 <ul>
 <li><a href=#example-usage-1>Example Usage</a></li>
 </ul>
 </li>
-<li><a href=#gen_eq><code>gen_eq</code></a>
+<li><a href=#gen_expr><code>gen_expr</code></a>
 <ul>
 <li><a href=#example-usage-2>Example Usage</a></li>
 </ul>
 </li>
-<li><a href=#gen_frac><code>gen_frac</code></a>
+<li><a href=#gen_eq><code>gen_eq</code></a>
 <ul>
 <li><a href=#example-usage-3>Example Usage</a></li>
+</ul>
+</li>
+<li><a href=#gen_frac><code>gen_frac</code></a>
+<ul>
+<li><a href=#example-usage-4>Example Usage</a></li>
 </ul>
 </li>
 </ul></nav><hr></div>
@@ -416,6 +422,43 @@ Example Usage
 </span><span class=c1></span><span class=k>echo</span> <span class=nv>$lib</span><span class=o>::</span><span class=na>sigfig</span><span class=p>(</span><span class=mf>429.972</span><span class=p>,</span> <span class=mi>3</span><span class=p>);</span>     <span class=c1>// returns &#39;430.&#39;
 </span><span class=c1></span><span class=k>echo</span> <span class=nv>$lib</span><span class=o>::</span><span class=na>sigfig</span><span class=p>(</span><span class=mf>429.972</span><span class=p>,</span> <span class=mi>4</span><span class=p>);</span>     <span class=c1>// returns &#39;430.0&#39;
 </span></code></pre></div><hr>
+<div class=gdoc-page__anchorwrap>
+<h2 id=simplify_sqrt>
+<code>simplify_sqrt</code>
+<a data-clipboard-text=https://canpake.github.io/3-coding-techniques/using-libraries/libdq/#simplify_sqrt class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor simplify_sqrt" href=#simplify_sqrt><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
+</a>
+</h2>
+</div><div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>function</span> <span class=nf>simplify_sqrt</span><span class=p>(</span><span class=nv>$sqrt_value</span><span class=p>)</span>
+</code></pre></div><p>A function that displays the simplified square root of a number properly.</p>
+<p>Useful for cases where you&rsquo;d like to display random square roots in their simplest form - e.g. \( sqrt(27) \) as \( 3 sqrt(3) \).</p>
+<p>The values taken in are as follows:</p>
+<ul>
+<li><code>$sqrt_value</code> - Integer. The number to take the square root of.
+<ul>
+<li>Can take a nonnegative value.</li>
+</ul>
+</li>
+</ul>
+<p>The function can either return an <strong>integer</strong> or a <strong>string</strong>:<br>
+An integer is returned if the fraction evaluates to a whole number;<br>
+A string is returned otherwise, representing the most simplified version of the fraction.</p>
+<div class=gdoc-page__anchorwrap>
+<h3 id=example-usage-1>
+Example Usage
+<a data-clipboard-text=https://canpake.github.io/3-coding-techniques/using-libraries/libdq/#example-usage-1 class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Example Usage" href=#example-usage-1><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
+</a>
+</h3>
+</div><div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$lib</span> <span class=o>=</span> <span class=nx>_MD</span><span class=p>(</span><span class=s1>&#39;lib_DQ&#39;</span><span class=p>);</span>
+
+<span class=k>echo</span> <span class=nv>$lib</span><span class=o>::</span><span class=na>simplify_sqrt</span><span class=p>(</span><span class=mi>25</span><span class=p>);</span>   <span class=c1>// returns 5
+</span><span class=c1></span><span class=k>echo</span> <span class=nv>$lib</span><span class=o>::</span><span class=na>simplify_sqrt</span><span class=p>(</span><span class=mi>26</span><span class=p>);</span>   <span class=c1>// returns &#34;sqrt(26)&#34;
+</span><span class=c1></span><span class=k>echo</span> <span class=nv>$lib</span><span class=o>::</span><span class=na>simplify_sqrt</span><span class=p>(</span><span class=mi>27</span><span class=p>);</span>   <span class=c1>// returns &#34;3 sqrt(3)&#34;
+</span><span class=c1></span><span class=k>echo</span> <span class=nv>$lib</span><span class=o>::</span><span class=na>simplify_sqrt</span><span class=p>(</span><span class=o>-</span><span class=mi>27</span><span class=p>);</span>  <span class=c1>// returns &#34;3i sqrt(3)&#34;
+</span><span class=c1></span>
+<span class=c1>// Using it in a sentence - note the use of backticks to include AsciiMath
+</span><span class=c1></span><span class=nv>$simplified</span> <span class=o>=</span> <span class=nv>$lib</span><span class=o>::</span><span class=na>simplify_sqrt</span><span class=p>(</span><span class=mi>40</span><span class=p>)</span>
+<span class=k>echo</span> <span class=s2>&#34;The square root of 40 can be simplified: `sqrt(40) = </span><span class=si>$simplified</span><span class=s2>`&#34;</span><span class=p>;</span> 
+</code></pre></div><hr>
 <div class=gdoc-page__anchorwrap>
 <h2 id=gen_expr>
 <code>gen_expr</code>
@@ -456,9 +499,9 @@ Coefficient-term pairs will be displayed in order given.
 </ul>
 <p>The function returns a string that you can encase in backticks to display properly with AsciiMath.</p>
 <div class=gdoc-page__anchorwrap>
-<h3 id=example-usage-1>
+<h3 id=example-usage-2>
 Example Usage
-<a data-clipboard-text=https://canpake.github.io/3-coding-techniques/using-libraries/libdq/#example-usage-1 class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Example Usage" href=#example-usage-1><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
+<a data-clipboard-text=https://canpake.github.io/3-coding-techniques/using-libraries/libdq/#example-usage-2 class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Example Usage" href=#example-usage-2><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
 </a>
 </h3>
 </div><div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$lib</span> <span class=o>=</span> <span class=nx>_MD</span><span class=p>(</span><span class=s1>&#39;lib_DQ&#39;</span><span class=p>)</span>
@@ -494,9 +537,9 @@ Example Usage
 </ul>
 <p>The function returns a string of the equation that will be displayed properly with AsciiMath.</p>
 <div class=gdoc-page__anchorwrap>
-<h3 id=example-usage-2>
+<h3 id=example-usage-3>
 Example Usage
-<a data-clipboard-text=https://canpake.github.io/3-coding-techniques/using-libraries/libdq/#example-usage-2 class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Example Usage" href=#example-usage-2><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
+<a data-clipboard-text=https://canpake.github.io/3-coding-techniques/using-libraries/libdq/#example-usage-3 class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Example Usage" href=#example-usage-3><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
 </a>
 </h3>
 </div><div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$lib</span> <span class=o>=</span> <span class=nx>_MD</span><span class=p>(</span><span class=s1>&#39;lib_DQ&#39;</span><span class=p>)</span>
@@ -520,7 +563,8 @@ Example Usage
 <span class=nv>$C</span> <span class=o>=</span> <span class=nx>mt_rand</span><span class=p>(</span><span class=o>-</span><span class=mi>9</span><span class=p>,</span> <span class=mi>9</span><span class=p>);</span>
 
 <span class=k>echo</span> <span class=nv>$lib</span><span class=o>::</span><span class=na>gen_expr</span><span class=p>([</span><span class=s2>&#34;sin(x)&#34;</span> <span class=o>=&gt;</span> <span class=nv>$A</span><span class=p>,</span> <span class=s2>&#34;cos(x)&#34;</span> <span class=o>=&gt;</span> <span class=nv>$B</span><span class=p>],</span>  <span class=p>[</span><span class=s2>&#34;&#34;</span> <span class=o>=&gt;</span> <span class=nv>$C</span><span class=p>],</span> <span class=nv>$operator</span><span class=o>=</span><span class=s2>&#34;&lt;&#34;</span><span class=p>,</span> <span class=nv>$backticks</span><span class=o>=</span><span class=k>true</span><span class=p>);</span>
-</code></pre></div><div class=gdoc-page__anchorwrap>
+</code></pre></div><hr>
+<div class=gdoc-page__anchorwrap>
 <h2 id=gen_frac>
 <code>gen_frac</code>
 <a data-clipboard-text=https://canpake.github.io/3-coding-techniques/using-libraries/libdq/#gen_frac class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor gen_frac" href=#gen_frac><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
@@ -542,9 +586,9 @@ Example Usage
 An integer is returned if the fraction evaluates to a whole number;<br>
 A string is returned otherwise, representing the most simplified version of the fraction.</p>
 <div class=gdoc-page__anchorwrap>
-<h3 id=example-usage-3>
+<h3 id=example-usage-4>
 Example Usage
-<a data-clipboard-text=https://canpake.github.io/3-coding-techniques/using-libraries/libdq/#example-usage-3 class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Example Usage" href=#example-usage-3><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
+<a data-clipboard-text=https://canpake.github.io/3-coding-techniques/using-libraries/libdq/#example-usage-4 class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Example Usage" href=#example-usage-4><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
 </a>
 </h3>
 </div><div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// Question: Volume of sphere with random radius
@@ -582,7 +626,7 @@ Example Usage
 <footer class=gdoc-footer>
 <div class="container flex flex-wrap">
 <span class=gdoc-footer__item>
-Built with <a href=https://gohugo.io/ class=gdoc-footer__link>Hugo</a> and<svg class="icon gdoc_heart"><use xlink:href="#gdoc_heart"/></svg>
+Built with <a href=https://gohugo.io/ class=gdoc-footer__link>Hugo</a> (and a lot of caffeine)
 </span>
 </div>
 </footer>
