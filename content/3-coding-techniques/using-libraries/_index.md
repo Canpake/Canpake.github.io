@@ -41,9 +41,9 @@ You can see that the `::` operator allows access to the functions of the `Algebr
 
 ## Calling Functions from LibDQ
 
-The LibDQ functions are a bit more convoluted; these are stored as a static class already loaded by the site itself. Rather than the `use` command, this class is accessed to by using predefined function on the site: `_MD('lib_dq')`. 
+The LibDQ functions are a bit more convoluted; these are stored as a static class already loaded by the site itself. Rather than the `use` command, this class is accessed by using predefined function on the site: `_MD('lib_dq')`. 
 
-An example of how this is used might be more clear: 
+An example is shown below, where the LibDQ `sigfig()` function is called several times.
 
 ```php
 // Round 429.972 to some number of significant figures
