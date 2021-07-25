@@ -390,8 +390,8 @@ Calling Functions from LibDQ
 <a data-clipboard-text=https://canpake.github.io/3-coding-techniques/using-libraries/#calling-functions-from-libdq class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Calling Functions from LibDQ" href=#calling-functions-from-libdq><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
 </a>
 </h2>
-</div><p>The LibDQ functions are a bit more convoluted; these are stored as a static class already loaded by the site itself. Rather than the <code>use</code> command, this class is accessed to by using predefined function on the site: <code>_MD('lib_dq')</code>.</p>
-<p>An example of how this is used might be more clear:</p>
+</div><p>The LibDQ functions are a bit more convoluted; these are stored as a static class already loaded by the site itself. Rather than the <code>use</code> command, this class is accessed by using predefined function on the site: <code>_MD('lib_dq')</code>.</p>
+<p>An example is shown below, where the LibDQ <code>sigfig()</code> function is called several times.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// Round 429.972 to some number of significant figures
 </span><span class=c1></span><span class=k>echo</span> <span class=nx>_MD</span><span class=p>(</span><span class=s1>&#39;lib_dq&#39;</span><span class=p>)</span><span class=o>::</span><span class=na>sigfig</span><span class=p>(</span><span class=mf>429.972</span><span class=p>,</span> <span class=mi>2</span><span class=p>);</span>     <span class=c1>// returns &#39;430&#39;
 </span><span class=c1></span><span class=k>echo</span> <span class=nx>_MD</span><span class=p>(</span><span class=s1>&#39;lib_dq&#39;</span><span class=p>)</span><span class=o>::</span><span class=na>sigfig</span><span class=p>(</span><span class=mf>429.972</span><span class=p>,</span> <span class=mi>3</span><span class=p>);</span>     <span class=c1>// returns &#39;430.&#39;
