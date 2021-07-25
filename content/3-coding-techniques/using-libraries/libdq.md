@@ -7,8 +7,9 @@ katex: true
 The LibDQ library (as of the moment) has only a few main use cases: 
 
 1. Rounding numbers to significant figures (`sigfig`)
-2. Formatting algebraic expressions and equations properly (`gen_expr`, and `gen_eq`)
-3. Simplifying fractions (`gen_frac`)
+2. Simplifying square roots (`simplify_sqrt`)
+3. Formatting algebraic expressions and equations properly (`gen_expr`, and `gen_eq`)
+4. Simplifying fractions (`gen_frac`)
 
 Below, I'll explain the relevant functions that provide the above functionality:
 
@@ -42,6 +43,41 @@ $lib = _MD('lib_dq');   // this sets the variable $lib to the static class holdi
 echo $lib::sigfig(429.972, 2);     // returns '430'
 echo $lib::sigfig(429.972, 3);     // returns '430.'
 echo $lib::sigfig(429.972, 4);     // returns '430.0'
+```
+
+---
+
+## `simplify_sqrt`
+
+```php
+function simplify_sqrt($sqrt_value)
+```
+
+A function that displays the simplified square root of a number properly.
+
+Useful for cases where you'd like to display random square roots in their simplest form - e.g. \\( sqrt(27) \\) as \\( 3 sqrt(3) \\).
+
+The values taken in are as follows: 
+- `$sqrt_value` - Integer. The number to take the square root of. 
+  - Can take a nonnegative value. 
+
+The function can either return an **integer** or a **string**: \
+An integer is returned if the fraction evaluates to a whole number; \
+A string is returned otherwise, representing the most simplified version of the fraction.
+
+### Example Usage
+
+```php
+$lib = _MD('lib_DQ');
+
+echo $lib::simplify_sqrt(25);   // returns 5
+echo $lib::simplify_sqrt(26);   // returns "sqrt(26)"
+echo $lib::simplify_sqrt(27);   // returns "3 sqrt(3)"
+echo $lib::simplify_sqrt(-27);  // returns "3i sqrt(3)"
+
+// Using it in a sentence - note the use of backticks to include AsciiMath
+$simplified = $lib::simplify_sqrt(40)
+echo "The square root of 40 can be simplified: `sqrt(40) = $simplified`"; 
 ```
 
 ---
@@ -152,6 +188,7 @@ $C = mt_rand(-9, 9);
 echo $lib::gen_expr(["sin(x)" => $A, "cos(x)" => $B],  ["" => $C], $operator="<", $backticks=true);
 ```
 
+---
 
 ## `gen_frac`
 
