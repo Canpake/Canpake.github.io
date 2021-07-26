@@ -5,7 +5,7 @@
 <meta name=color-scheme content="light dark">
 <meta name=description content="The LibDQ library (as of the moment) has only a few main use cases:
  Rounding numbers to significant figures (sigfig) Simplifying square roots (simplify_sqrt) Formatting algebraic expressions and equations properly (gen_expr, and gen_eq) Simplifying fractions (gen_frac)  Below, I&rsquo;ll explain the relevant functions that provide the above functionality:
-   sigfig  Example Usage   simplify_sqrt  Example Usage   gen_expr  Example Usage   gen_eq  Example Usage   gen_frac  Example Usage        sigfig    function sigfig($value, $digits) This function was introduced as an example in the previous page, but I&rsquo;ll formally define it here for clarity:">
+   sigfig  Example Usage   simplify_sqrt  Example Usage   gen_expr  Example Usage   gen_eq  Example Usage   gen_frac  Example Usage       Important: Unfortunately, the below example usage code will only work if you use them inside the QBM.">
 <title>3.1.1 LibDQ | Dynamic Questions Guide</title>
 <link rel=icon href=https://canpake.github.io/favicon/favicon-32x32.png type=image/x-icon>
 <script src=https://canpake.github.io/js/darkmode-ce906ea916.min.js></script>
@@ -392,6 +392,26 @@ hidden-mobile" itemprop=breadcrumb>
 </ul>
 </li>
 </ul></nav><hr></div>
+<blockquote class="gdoc-hint warning">
+<p><strong>Important: Unfortunately, the below example usage code will only work if you use them inside the QBM.</strong><br>
+This is because the LibDQ library is a custom library that&rsquo;s been loaded in a specific manner on the website.</p>
+<p>If you&rsquo;d like to try using these functions in a separate editor, I&rsquo;ve found a solution that sort-of works?<br>
+You can try following the steps below:</p>
+<ol>
+<li>
+<p>Make a <a class=gdoc-markdown__link href=https://replit.com/>replit.com</a> account.</p>
+</li>
+<li>
+<p>After you&rsquo;ve made an account, follow the link below and &lsquo;fork&rsquo; the project.<br>
+<a class=gdoc-markdown__link href=https://replit.com/@canpake/LibDQ#main.php>https://replit.com/@canpake/LibDQ#main.php</a><br>
+(This puts a copy of the project in your account that you can edit.)</p>
+</li>
+<li>
+<p>To use the library, edit the <code>main.php</code> file, and press the &lsquo;run&rsquo; button to test your code.</p>
+</li>
+</ol>
+<p>If things don&rsquo;t seem to work, or if you&rsquo;d like to use this in an IDE of your own, please feel free to <a class=gdoc-markdown__link href=https://canpake.github.io/other/contact>contact me</a>.</p>
+</blockquote>
 <hr>
 <div class=gdoc-page__anchorwrap>
 <h2 id=sigfig>
