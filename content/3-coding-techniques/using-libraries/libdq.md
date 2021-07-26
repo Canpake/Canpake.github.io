@@ -15,6 +15,24 @@ Below, I'll explain the relevant functions that provide the above functionality:
 
 {{<toc>}}
 
+{{<hint warning>}}
+**Important: Unfortunately, the below example usage code will only work if you use them inside the QBM.** \
+This is because the LibDQ library is a custom library that's been loaded in a specific manner on the website.
+
+If you'd like to try using these functions in a separate editor, I've found a solution that sort-of works? \
+You can try following the steps below:
+
+1. Make a [replit.com](https://replit.com/) account.
+
+2. After you've made an account, follow the link below and 'fork' the project. \
+   https://replit.com/@canpake/LibDQ#main.php \
+   (This puts a copy of the project in your account that you can edit.)
+
+3. To use the library, edit the `main.php` file, and press the 'run' button to test your code.
+
+If things don't seem to work, or if you'd like to use this in an IDE of your own, please feel free to [contact me](/other/contact).
+{{</hint>}}
+
 ---
 
 ## `sigfig`
