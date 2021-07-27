@@ -86,7 +86,7 @@ A string is returned otherwise, representing the most simplified version of the 
 ### Example Usage
 
 ```php
-$lib = _MD('lib_DQ');
+$lib = _MD('lib_dq');
 
 echo $lib::simplify_sqrt(25);   // returns 5
 echo $lib::simplify_sqrt(26);   // returns "sqrt(26)"
@@ -141,7 +141,7 @@ The function returns a string that you can encase in backticks to display proper
 ### Example Usage
 
 ```php
-$lib = _MD('lib_DQ')
+$lib = _MD('lib_dq')
 
 // Display a random expression Ax + By + Cz + D, as shown above
 $A = mt_rand(-9, 9);
@@ -179,7 +179,7 @@ The function returns a string of the equation that will be displayed properly wi
 ### Example Usage
 
 ```php
-$lib = _MD('lib_DQ')
+$lib = _MD('lib_dq')
 
 // Generate a quadratic equation y = Ax^2 + Bx + C 
 $A = mt_rand(-9, 9);
@@ -196,7 +196,7 @@ echo "Which of the following lines is a graph of `$equation`?";
 Another use case with an inequality: 
 
 ```php
-$lib = _MD('lib_DQ')
+$lib = _MD('lib_dq')
 
 // Directly display an inequality, Asin(x) + Bcos(x) < C
 $A = mt_rand(-9, 9);
