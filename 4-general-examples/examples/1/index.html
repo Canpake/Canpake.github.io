@@ -326,7 +326,7 @@ Contact Info
 <li>
 <span class=flex>
 <a href=https://canpake.github.io/5-advanced-examples/ class=gdoc-nav__entry>
-5. More DQ Examples
+5. Using JSXGraph
 </a>
 </span>
 <ul class=gdoc-nav__list>
@@ -376,20 +376,23 @@ V = {4\pi \over 3} \cdot \bigg( \sqrt{{SA \over 4 \pi}} \bigg)^3
 \]</span></p>
 <p>This looks a bit messy - but in fact, there's a pretty neat way to go about generating values for this question!</p>
 <h2 id=approach>Approach</h2>
-<p>The first thing to note is the formulas for SA and Volume: If radius is a whole number, <strong>surface area and volume may be expressed exactly in terms of pi</strong>.</p>
-<p>So rather than generating surface area or volume, what we could instead do is <strong>generate a value for radius</strong>, and calculate the other resulting values.</p>
-<p>This would not only make the question neater and clearer, but also much easier to code - we wouldn't have to deal with rounding decimals or finding exact values!</p>
+<p>The first thing to note is the formulas for SA and Volume: <br>
+<strong>If radius is a whole number</strong>, surface area and volume may be expressed <strong>exactly in terms of pi</strong>.</p>
+<p>So rather than generating surface area or volume, what we could instead do is <strong>generate an integer value for the radius</strong>, and calculate the other resulting values.</p>
+<p>For students, this makes the question consistently solvable in a tidy manner; for us, it makes the question much easier to code - we can avoid dealing with square roots and rounding decimals!</p>
 <blockquote class="gdoc-hint info">
 <p>When writing questions, the randomised values don't necessarily have to be what's shown to the student. You could go backwards instead - generate the answer first, and calculate the values to display!</p>
 <p>In this case, we generated a value in the middle (the radius) and used that to calculate both the SA (displayed to the viewer) and the volume (the solution).</p>
 <p>There's no predefined way to go about doing this - you can generate the values however you want, but do aim to keep the values in a question simple (as noted in <a href=https://canpake.github.io/2-design/guidelines#221-context>section 2.2.1</a>), as it tends to make your questions clearer and easier to code!</p>
 </blockquote>
-<p>One other thing to note is the formula for the answer (volume): If radius is divisible by 3, the value of <span class=math>\(r^3\)</span> will cancel out with the denominator. We have two options here - either only generate radius values that are divisible/indivisible by 3, or add an extra check to see if we need to simplify the fraction. I'll go with the latter option in this case to show you how it can be done.</p>
-<p>It's also important to note that we should specify <strong>how</strong> we want the answer to be formatted! Generally, we could choose to either ask for the value exactly in terms of <span class=math>\(\pi\)</span>, or rounded to some number of decimal places.</p>
-<p>In this case, I went with the former option as it requires students to think more carefully about the formulas involved (and it was also easier to code :P).</p>
+<p>There are a few other things to note:</p>
+<ol>
+<li><p>The formula for the answer (volume), as <span class=math>\({4 \over 3} \pi r^3\)</span>, will need to be formatted either as a fraction or as a whole number, depending on the value of <span class=math>\(r\)</span>. Below, I'll show two ways of achieving this - either manually after checking whether the numerator is divisible by 3, or using a LibDQ function.</p></li>
+<li><p>We should specify in the question <strong>how</strong> we want the answer to be formatted - such as whether to round the answer, or to provide a value exactly in terms of <span class=math>\(\pi\)</span>. In this case, I went with the latter option as it requires students to think more carefully about the formulas involved (this is also easier to code :P).</p></li>
+</ol>
 <h2 id=coding-the-question>Coding the Question</h2>
 <p>First, as noted above, let's make our random value the radius of the sphere - since volume is based on radius cubed, we should be careful not to let the random values vary too much:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$radius</span> <span class=o>=</span> <span class=nx>mt_rand</span><span class=p>(</span><span class=mi>5</span><span class=p>,</span> <span class=mi>20</span><span class=p>);</span></code></pre></div>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$radius</span> <span class=o>=</span> <span class=nx>mt_rand</span><span class=p>(</span><span class=mi>5</span><span class=p>,</span> <span class=mi>15</span><span class=p>);</span></code></pre></div>
 <p>From <code>$radius</code>, we can calculate the values of sphere's SA and volume, <u>in terms of pi</u>.</p>
 <p>SA is straightforward, but volume needs to deal with the case where the fraction can be simplified:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$sa</span> <span class=o>=</span> <span class=mi>4</span> <span class=o>*</span> <span class=nx>pow</span><span class=p>(</span><span class=nv>$radius</span><span class=p>,</span> <span class=mi>2</span><span class=p>);</span>            <span class=c1>// in terms of pi
@@ -400,6 +403,12 @@ V = {4\pi \over 3} \cdot \bigg( \sqrt{{SA \over 4 \pi}} \bigg)^3
 <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
     <span class=nv>$vol</span> <span class=o>=</span> <span class=s2>&#34;</span><span class=si>$vol_numer</span><span class=s2> / 3&#34;</span><span class=p>;</span>
 <span class=p>}</span></code></pre></div>
+<p>Note that alternatively, we could use a LibDQ function <code>gen_frac()</code> to help us with formatting:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$sa</span> <span class=o>=</span> <span class=mi>4</span> <span class=o>*</span> <span class=nx>pow</span><span class=p>(</span><span class=nv>$radius</span><span class=p>,</span> <span class=mi>2</span><span class=p>);</span>            <span class=c1>// in terms of pi
+</span><span class=c1></span>
+<span class=nv>$vol_numer</span> <span class=o>=</span> <span class=mi>4</span> <span class=o>*</span> <span class=nx>pow</span><span class=p>(</span><span class=nv>$radius</span><span class=p>,</span> <span class=mi>3</span><span class=p>);</span>     <span class=c1>// numerator, in terms of pi
+</span><span class=c1></span><span class=nv>$vol</span> <span class=o>=</span> <span class=nx>_MD</span><span class=p>(</span><span class=s1>&#39;lib_dq&#39;</span><span class=p>)</span><span class=o>::</span><span class=na>gen_frac</span><span class=p>(</span><span class=nv>$vol_numer</span><span class=p>,</span> <span class=mi>3</span><span class=p>);</span></code></pre></div>
+<p>In this case, to make the code usable even on local machines where LibDQ isn't defined, I'll go with the former.</p>
 <blockquote class="gdoc-hint info">
 <p>Here, we've not actually stored the <em>real</em> values of SA or volume in any of the variables. Instead, The values of <code>$sa</code> and <code>$vol</code> are set up so that we can display them properly in strings that use AsciiMath - e.g. <code>`$vol pi`</code>.</p>
 <p>For example, if <code>$radius</code> was set to <code>5</code>, then <code>$vol</code> would be the string <code>"500 / 3"</code>.</p>
