@@ -66,7 +66,7 @@ The second time a student sees the same dynamic question, we want to be confiden
 
 > **Note:** As said in section 1, the order of solutions is randomised by default; this does not count as 'randomisation' in a dynamic question. 
 
-As a rule of thumb, it would be good to have at least 20 possible variations of your question. More randomisation is better, but be careful of the next issue:  
+As a rule of thumb, it would be good to have at least 10 possible variations of your question. More randomisation is better, but be careful of the next issue:  
 
 ---
 

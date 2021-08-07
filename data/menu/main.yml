@@ -80,7 +80,7 @@ main:
             ref: "/4-general-examples/solving-issues/5"
           - name: 4.3.6. (MCQs) Inappropriate choices
             ref: "/4-general-examples/solving-issues/6"
-  - name: 5. More DQ Examples
+  - name: 5. Using JSXGraph
     ref: '/5-advanced-examples'
     sub:
       - name: 5.1. Example Question 3

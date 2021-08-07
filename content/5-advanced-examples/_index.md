@@ -1,5 +1,5 @@
 ---
-title: 5. More Coding Examples
+title: 5. Using JSXGraph
 
 jsxg: true
 ---
