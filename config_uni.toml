@@ -1,4 +1,4 @@
-baseurl = "https://canpake.github.io/"
+baseurl = "https://canpake.github.io/uni"
 contentdir    = "uni/content"
 layoutdir     = "layouts"
 publishdir    = "public/uni"
