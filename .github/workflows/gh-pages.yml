@@ -21,8 +21,11 @@ jobs:
           hugo-version: 'latest'
           # extended: true
 
-      - name: Build
-        run: hugo --minify
+      - name: Build Wiki
+        run: hugo --minify --config="config_wiki.toml"
+
+      - name: Build Personal
+        run: hugo --minify --config="config_uni.toml"
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
