@@ -1,5 +1,5 @@
 ---
-title: My Uni Page
+title: Home
 
 resources:
   - name: cookie

@@ -2,7 +2,7 @@ baseurl = "https://canpake.github.io/uni"
 contentdir    = "uni/content"
 layoutdir     = "layouts"
 publishdir    = "public/uni"
-title = "Test Uni Site"
+title = "Jonny's Stuff"
 canonifyurls  = true
 
 DefaultContentLanguage = "en"
