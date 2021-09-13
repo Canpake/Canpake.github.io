@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!DOCTYPE bulletml SYSTEM "http://www.asahi-net.or.jp/~cs8k-cyu/bulletml/bulletml.dtd">
+
+<bulletml type="vertical">
+    <!-- Top level action -->
+    <action label="top">
+        <actionRef label="fireCircle">
+            <param>180-45+90*$rand</param>
+        </actionRef>
+    </action>
+
+    <action label="fireCircle">
+        <repeat> <times>18</times>
+            <action>
+                <fireRef label="circle">
+                    <param>20</param>
+                    <param>$1</param>
+                </fireRef>
+            </action>
+        </repeat>
+    </action>
+
+    <fire label="circle">
+        <direction type="sequence">$1</direction>
+        <speed>6</speed>
+        <bulletRef label="myBullet"/>
+    </fire>
+
+    <bullet label="myBullet">
+        <direction type="absolute">180</direction>
+        <speed>2</speed>
+        <action>
+            <accel>
+                <vertical>3</vertical>
+                <term>120</term>
+            </accel>
+        </action>
+    </bullet>
+
+</bulletml>

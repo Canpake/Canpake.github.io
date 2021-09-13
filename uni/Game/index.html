@@ -3,7 +3,7 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=color-scheme content="light dark">
-<meta name=description content="var config = { type: Phaser.AUTO, width: 800, height: 600, parent: 'phasergame', physics: { default: 'arcade', arcade: { gravity: { y: 200 } } }, scene: { preload: preload, create: create } }; var game = new Phaser.Game(config); function preload () { this.load.setBaseURL('http://labs.phaser.io'); this.load.image('sky', 'assets/skies/space3.png'); this.load.image('logo', 'assets/sprites/phaser3-logo.png'); this.load.image('red', 'assets/particles/red.png'); } function create () { this.add.image(400, 300, 'sky'); var particles = this.add.particles('red'); var emitter = particles.">
+<meta name=description content="  this is ignored         ">
 <title>Phaser Example | Test Uni Site</title>
 <link rel=icon href=https://canpake.github.io/uni/favicon/favicon-32x32.png type=image/x-icon>
 <script src=https://canpake.github.io/uni/js/darkmode-ce906ea916.min.js></script>
@@ -73,13 +73,14 @@ hidden-mobile" itemprop=breadcrumb>
 <article class="gdoc-markdown gdoc-markdown__align--left">
 <h1>Phaser Example</h1>
 <div class=gdoc-include><!doctype html>
-<html>
+<html lang=en>
 <head>
-<script src=https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js></script>
+<title>this is ignored</title>
+<script src=//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js></script>
 </head>
 <body>
 <div id=phasergame></div>
-<script>var config={type:Phaser.AUTO,width:800,height:600,parent:'phasergame',physics:{default:'arcade',arcade:{gravity:{y:200}}},scene:{preload,create}},game=new Phaser.Game(config);function preload(){this.load.setBaseURL('http://labs.phaser.io'),this.load.image('sky','assets/skies/space3.png'),this.load.image('logo','assets/sprites/phaser3-logo.png'),this.load.image('red','assets/particles/red.png')}function create(){var b,c,a;this.add.image(400,300,'sky'),b=this.add.particles('red'),c=b.createEmitter({speed:100,scale:{start:1,end:0},blendMode:'ADD'}),a=this.physics.add.image(400,100,'logo'),a.setVelocity(100,200),a.setBounce(1,1),a.setCollideWorldBounds(!0),c.startFollow(a)}</script>
+<script type=module src=src/game.js></script>
 </body>
 </html>
 </div>
