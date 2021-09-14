@@ -1,7 +1,7 @@
 import Phaser from '../../lib/phaser.js'
 import Bullet from "./bullet.js";
 
-export default class Bullets extends Phaser.Physics.Arcade.Group {
+export default class SpreadBullets extends Phaser.Physics.Arcade.Group {
   constructor(scene) {
     super(scene.physics.world, scene);
 
@@ -14,10 +14,9 @@ export default class Bullets extends Phaser.Physics.Arcade.Group {
     });
 
     this.nextFire = 0;        // time until next fire
-    this.bulletSpeed = 600;
-    this.fireRate = 100;
-    this.xOffset = 0;
-    this.yOffset = -30;
+    this.bulletSpeed = 400;
+    this.fireRate = 200;
+    this.weaponName = "Spread";
   }
 
   fireBullet(x, y) {
@@ -25,9 +24,12 @@ export default class Bullets extends Phaser.Physics.Arcade.Group {
       return;
     }
 
-    let bullet = this.getFirstDead(false);
-    if (bullet) {
-      bullet.fire(x + this.xOffset, y + this.yOffset, -90, this.bulletSpeed, 0, 0);
+    let bullet1 = this.getFirstNth(1, false, false)
+    let bullet2 = this.getFirstNth(2, false, false)
+
+    if (bullet1 && bullet2) {
+      bullet1.fire(x+30, y-30, -90+10, this.bulletSpeed, -500, 0);
+      bullet2.fire(x-30, y-30, -90-10, this.bulletSpeed, 500, 0);
       this.nextFire = this.scene.game.getTime() + this.fireRate;
     }
   }

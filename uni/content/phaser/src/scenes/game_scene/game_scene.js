@@ -1,15 +1,22 @@
 import Phaser from '../../lib/phaser.js'
-import Bullets from "./bullets.js";
+import SingleBullets from "./singleBullets.js";
+import SpreadBullets from "./spreadBullets.js";
 
 export default class gameScene extends Phaser.Scene {
 
-    PLAYER_MOVESPEED = 150;
+    PLAYER_MOVESPEED = 250;
 
     /** @type {Phaser.Physics.Arcade.Sprite} */
     player;
 
-    /** @type {Bullets} */
+    /** @type {SingleBullets} */
     playerBullets;
+
+    playerBulletsIndex;
+    playerBulletsArray;
+
+    /** @type {Phaser.GameObjects.Text} */
+    playerBulletsText;
 
     /** @type {Phaser.GameObjects.TileSprite}*/
     background;
@@ -57,14 +64,21 @@ export default class gameScene extends Phaser.Scene {
 
         this.player = this.physics.add.sprite(this.scale.width*0.5, 550, 'player');
         this.player.setCollideWorldBounds(true);
-        this.playerBullets = new Bullets(this);
+
+        this.playerBulletsArray = [];
+        this.playerBulletsArray.push(new SingleBullets(this));
+        this.playerBulletsArray.push(new SpreadBullets(this));
+
+        this.playerBulletsIndex = 0;
+        this.playerBullets = this.playerBulletsArray[this.playerBulletsIndex];
 
         this.physics.add.collider(this.player, this.platforms);
-        this.physics.add.collider(this.playerBullets, this.platforms, this.bulletHitPlatform);
+        this.playerBulletsArray.forEach(bullets => this.physics.add.collider(bullets, this.platforms, this.bulletHitPlatform))
 
-        // camera - set the horizontal dead zone to 1.5x game width
-        // this.cameras.main.startFollow(this.player);
-        // this.cameras.main.setDeadzone(this.scale.width * 0.8);
+        this.input.keyboard.on('keydown-Z', this.nextPlayerWeapon, this);
+        this.playerBulletsText = this.add.text(50, 50, this.playerBullets.weaponName, {
+            font: "40px Helvetica", fill: "#000"
+        })
     }
 
     update(time, delta) {
@@ -97,6 +111,13 @@ export default class gameScene extends Phaser.Scene {
     bulletHitPlatform(bullet, platform) {
         if (bullet) { bullet.destroy(); }
         if (platform) { platform.destroy(); }
+    }
+
+    nextPlayerWeapon() {
+        this.playerBulletsIndex += 1;
+        this.playerBulletsIndex %= this.playerBulletsArray.length;
+        this.playerBullets = this.playerBulletsArray[this.playerBulletsIndex];
+        this.playerBulletsText.setText(this.playerBullets.weaponName);
     }
 
     updateBackground() {
