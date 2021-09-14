@@ -6,8 +6,7 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
     this.scaleSpeed = 0;  // speed at which the bullet scales in size
   }
 
-  fire(x, y, angle, speed, gx=0, gy=0) {
-    console.log("OK");
+  fire(x, y, angle, speed, dx=0, dy=0, scaleSpeed = 0) {
     this.setPosition(x, y);
     this.setScale(1);
 
@@ -16,7 +15,8 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
 
     this.setAngle(angle);
     this.scene.physics.velocityFromAngle(angle, speed, this.body.velocity);
-    this.body.gravity.set(gx, gy);
+    this.body.setGravity(dx, dy);
+    this.scaleSpeed = scaleSpeed;
   }
 
   preUpdate(time, delta) {
