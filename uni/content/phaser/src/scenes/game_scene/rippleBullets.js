@@ -1,12 +1,12 @@
 import Phaser from '../../lib/phaser.js'
 import Bullet from "./bullet.js";
 
-export default class SpreadBullets extends Phaser.Physics.Arcade.Group {
+export default class RippleBullets extends Phaser.Physics.Arcade.Group {
   constructor(scene) {
     super(scene.physics.world, scene);
 
     this.createMultiple({
-      key: 'bullet2',
+      key: 'bullet4',
       frameQuantity: 20,
       active: false,
       visible: false,
@@ -14,13 +14,14 @@ export default class SpreadBullets extends Phaser.Physics.Arcade.Group {
     });
 
     this.nextFire = 0;        // time until next fire
-    this.bulletSpeed = 400;
-    this.fireRate = 200;
-    this.weaponName = "Spread";
+    this.bulletSpeed = 350;
+    this.fireRate = 300;
+    this.scaleSpeed = 0.02;
+    this.weaponName = "Scaling";
 
     /* Configuration */
     function configureBullet(bullet) {
-      bullet.setTracking(true);
+      bullet.setScaleSpeed(0.02)
     }
 
     this.children.each(configureBullet);
@@ -32,12 +33,10 @@ export default class SpreadBullets extends Phaser.Physics.Arcade.Group {
       return;
     }
 
-    let bullet1 = this.getFirstNth(1, false, false)
-    let bullet2 = this.getFirstNth(2, false, false)
+    let bullet = this.getFirstNth(1, false, false)
 
-    if (bullet1 && bullet2) {
-      bullet1.fire(x+30, y-30, -90+10, this.bulletSpeed, -300, 0);
-      bullet2.fire(x-30, y-30, -90-10, this.bulletSpeed, 300, 0);
+    if (bullet) {
+      bullet.fire(x, y-30, -90, this.bulletSpeed, 0, 0);
       this.nextFire = this.scene.game.getTime() + this.fireRate;
     }
   }

@@ -1,6 +1,7 @@
 import Phaser from '../../lib/phaser.js'
 import SingleBullets from "./singleBullets.js";
 import SpreadBullets from "./spreadBullets.js";
+import RippleBullets from "./rippleBullets.js";
 
 export default class gameScene extends Phaser.Scene {
 
@@ -32,22 +33,19 @@ export default class gameScene extends Phaser.Scene {
     }
 
     preload() {
-        // This method is called once at the beginning
-        // It will load all the assets, like sprites and sounds
         this.load.image('sky', 'assets/graphics/sky.png');
         this.load.image('ground', 'assets/graphics/platform.png');
         this.load.image('star', 'assets/graphics/star.png');
         this.load.image('bomb', 'assets/graphics/bomb.png');
-        this.load.image('bullet', 'assets/graphics/bullet1.png');
+        this.load.image('bullet1', 'assets/graphics/bullet1.png');
+        this.load.image('bullet2', 'assets/graphics/bullet2.png');
+        this.load.image('bullet3', 'assets/graphics/bullet3.png');
+        this.load.image('bullet4', 'assets/graphics/bullet4.png');
         this.load.image('floor', 'assets/graphics/floor.png');
 
         this.load.image('enemy', 'assets/graphics/enemy1.png');
-        this.load.image('player', 'assets/graphics/player.png');
-
-        this.load.spritesheet('dude',
-            'assets/graphics/dude.png',
-            { frameWidth: 32, frameHeight: 48 }
-        );
+        this.load.spritesheet('player', 'assets/graphics/player.png',
+          {frameWidth: 20, frameHeight: 30});
     }
 
     create() {
@@ -63,11 +61,14 @@ export default class gameScene extends Phaser.Scene {
         this.platforms.create(750, 220, 'ground');
 
         this.player = this.physics.add.sprite(this.scale.width*0.5, 550, 'player');
+        this.player.texture.setFilter(Phaser.Textures.FilterMode.NEAREST);
+        this.player.setScale(2);
         this.player.setCollideWorldBounds(true);
 
         this.playerBulletsArray = [];
         this.playerBulletsArray.push(new SingleBullets(this));
         this.playerBulletsArray.push(new SpreadBullets(this));
+        this.playerBulletsArray.push(new RippleBullets(this));
 
         this.playerBulletsIndex = 0;
         this.playerBullets = this.playerBulletsArray[this.playerBulletsIndex];
@@ -76,9 +77,18 @@ export default class gameScene extends Phaser.Scene {
         this.playerBulletsArray.forEach(bullets => this.physics.add.collider(bullets, this.platforms, this.bulletHitPlatform))
 
         this.input.keyboard.on('keydown-Z', this.nextPlayerWeapon, this);
-        this.playerBulletsText = this.add.text(50, 50, this.playerBullets.weaponName, {
-            font: "40px Helvetica", fill: "#000"
+        this.playerBulletsText = this.add.text(25, 25, this.playerBullets.weaponName, {
+            font: "40px", fill: "#000"
         })
+
+        this.anims.create({
+            key: 'idle',
+            frames: this.anims.generateFrameNumbers('player', { frames: [ 0, 1, 2, 3, 0 ] }),
+            frameRate: 12,
+            repeat: -1,
+            repeatDelay: 100,
+        });
+        this.player.play('idle');
     }
 
     update(time, delta) {
@@ -86,6 +96,7 @@ export default class gameScene extends Phaser.Scene {
         // It will handle all the game's logic, like movements
         this.updatePlayerMovement();
         this.updatePlayerShooting();
+        this.playerBullets.preUpdate();
         this.updateBackground();
     }
 

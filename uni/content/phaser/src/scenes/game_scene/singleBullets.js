@@ -6,7 +6,7 @@ export default class SingleBullets extends Phaser.Physics.Arcade.Group {
     super(scene.physics.world, scene);
 
     this.createMultiple({
-      key: 'bullet',
+      key: 'bullet1',
       frameQuantity: 20,
       active: false,
       visible: false,
