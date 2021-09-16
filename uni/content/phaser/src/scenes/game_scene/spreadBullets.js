@@ -20,7 +20,7 @@ export default class SpreadBullets extends Phaser.Physics.Arcade.Group {
 
     /* Configuration */
     function configureBullet(bullet) {
-      bullet.setTracking(true);
+      bullet.setTrackDirection(true);
     }
 
     this.children.each(configureBullet);

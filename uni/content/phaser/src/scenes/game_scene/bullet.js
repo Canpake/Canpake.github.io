@@ -7,15 +7,15 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
 
     /** Additional options (constants for all bullets, not set during fire) */
     this.scaleSpeed = 0;    // speed at which the bullet scales in size
-    this.tracking = false;  // whether to change rotation;
+    this.trackDirection = false;  // whether to change rotation based on movement;
   }
 
   setScaleSpeed(scaleSpeed) {
     this.scaleSpeed = scaleSpeed;
   }
 
-  setTracking(isTracking) {
-    this.tracking = isTracking;
+  setTrackDirection(isTracking) {
+    this.trackDirection = isTracking;
   }
 
   fire(x, y, angle, speed, dx=0, dy=0) {
@@ -34,8 +34,7 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
     super.preUpdate(time, delta);
 
     if (this.isOutOfBounds()) {
-      this.setActive(false);
-      this.setVisible(false);
+      this.hide();
     }
   }
 
@@ -43,12 +42,18 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
     if (this.scaleSpeed > 0) {
       this.setScale(this.scale + this.scaleSpeed);
     }
-    if (this.tracking) {
+    if (this.trackDirection) {
       this.setRotation(Math.atan2(this.body.velocity.y, this.body.velocity.x) - Math.PI/2);
     }
   }
 
   isOutOfBounds() {
-    return (this.y <= -100);    // disable beyond y: -30; set positive for visual confirmation of removal
+    return (this.y <= -100);    // can set positive for visual confirmation of removal
+  }
+
+  hide() {
+    this.setActive(false);
+    this.setVisible(false);
+    this.setPosition(0, 0);
   }
 }
