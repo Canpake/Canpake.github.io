@@ -6,7 +6,7 @@ export default class SpreadBullets extends Phaser.Physics.Arcade.Group {
     super(scene.physics.world, scene);
 
     this.createMultiple({
-      key: 'bullet',
+      key: 'bullet2',
       frameQuantity: 20,
       active: false,
       visible: false,
@@ -17,6 +17,14 @@ export default class SpreadBullets extends Phaser.Physics.Arcade.Group {
     this.bulletSpeed = 400;
     this.fireRate = 200;
     this.weaponName = "Spread";
+
+    /* Configuration */
+    function configureBullet(bullet) {
+      bullet.setTrackDirection(true);
+    }
+
+    this.children.each(configureBullet);
+    this.runChildUpdate = true;
   }
 
   fireBullet(x, y) {
@@ -28,8 +36,8 @@ export default class SpreadBullets extends Phaser.Physics.Arcade.Group {
     let bullet2 = this.getFirstNth(2, false, false)
 
     if (bullet1 && bullet2) {
-      bullet1.fire(x+30, y-30, -90+10, this.bulletSpeed, -500, 0);
-      bullet2.fire(x-30, y-30, -90-10, this.bulletSpeed, 500, 0);
+      bullet1.fire(x+30, y-30, -90+10, this.bulletSpeed, -300, 0);
+      bullet2.fire(x-30, y-30, -90-10, this.bulletSpeed, 300, 0);
       this.nextFire = this.scene.game.getTime() + this.fireRate;
     }
   }
