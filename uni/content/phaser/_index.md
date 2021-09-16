@@ -6,7 +6,7 @@ title: Phaser Example
 
 ### Controls
 - Arrow keys to move
-- Space to shoot (you can shoot the platforms in your way)
-- Z key to change weapon type
+- Space to shoot (you can shoot the asteroids falling down)
+- Z key to change weapon type (there are 3 types - single, double spread, ripple scaling)
 
-... that's about it, for now
+The spaceship can collide and push around the asteroid sprites - damage doesn't exist yet.
