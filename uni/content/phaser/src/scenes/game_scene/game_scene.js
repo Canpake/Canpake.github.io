@@ -2,6 +2,7 @@ import Phaser from '../../lib/phaser.js'
 import SingleBullets from "./singleBullets.js";
 import SpreadBullets from "./spreadBullets.js";
 import RippleBullets from "./rippleBullets.js";
+import Asteroids from "./asteroids.js";
 
 export default class gameScene extends Phaser.Scene {
 
@@ -22,8 +23,8 @@ export default class gameScene extends Phaser.Scene {
     /** @type {Phaser.GameObjects.TileSprite}*/
     background;
 
-    /** @type {Phaser.Physics.Arcade.StaticGroup} */
-    platforms;
+    /** @type {Asteroids} */
+    asteroids;
 
     /** @type {Phaser.Types.Input.Keyboard.CursorKeys} */
     cursorKeys;
@@ -49,21 +50,16 @@ export default class gameScene extends Phaser.Scene {
     }
 
     create() {
-        // This method is called once, just after preload()
-        // It will initialize our scene, like the positions of the sprites
-        this.platforms = this.physics.add.staticGroup();
         this.cursorKeys = this.input.keyboard.createCursorKeys();
 
         this.background = this.add.tileSprite(400, 300, 800, 600, 'floor');
-
-        this.platforms.create(600, 400, 'ground');
-        this.platforms.create(50, 250, 'ground');
-        this.platforms.create(750, 220, 'ground');
 
         this.player = this.physics.add.sprite(this.scale.width*0.5, 550, 'player');
         this.player.texture.setFilter(Phaser.Textures.FilterMode.NEAREST);
         this.player.setScale(2);
         this.player.setCollideWorldBounds(true);
+
+        this.asteroids = new Asteroids(this);
 
         this.playerBulletsArray = [];
         this.playerBulletsArray.push(new SingleBullets(this));
@@ -73,8 +69,8 @@ export default class gameScene extends Phaser.Scene {
         this.playerBulletsIndex = 0;
         this.playerBullets = this.playerBulletsArray[this.playerBulletsIndex];
 
-        this.physics.add.collider(this.player, this.platforms);
-        this.playerBulletsArray.forEach(bullets => this.physics.add.collider(bullets, this.platforms, this.bulletHitPlatform))
+        this.physics.add.collider(this.player, this.asteroids);
+        this.playerBulletsArray.forEach(bullets => this.physics.add.collider(bullets, this.asteroids, this.bulletHitAsteroid))
 
         this.input.keyboard.on('keydown-Z', this.nextPlayerWeapon, this);
         this.playerBulletsText = this.add.text(25, 25, this.playerBullets.weaponName, {
@@ -89,15 +85,17 @@ export default class gameScene extends Phaser.Scene {
             repeatDelay: 100,
         });
         this.player.play('idle');
+
+        this.asteroids.spawnWaves(-1, 10000);
     }
 
     update(time, delta) {
-        // This method is called 60 times per second after create()
-        // It will handle all the game's logic, like movements
         this.updatePlayerMovement();
         this.updatePlayerShooting();
         this.playerBullets.preUpdate();
+        this.asteroids.preUpdate();
         this.updateBackground();
+        this.updateEnemySpawn();
     }
 
     updatePlayerMovement() {
@@ -119,9 +117,9 @@ export default class gameScene extends Phaser.Scene {
         }
     }
 
-    bulletHitPlatform(bullet, platform) {
-        if (bullet) { bullet.destroy(); }
-        if (platform) { platform.destroy(); }
+    bulletHitAsteroid(bullet, asteroid) {
+        if (bullet) { bullet.hide(); }
+        if (asteroid) { asteroid.hide(); }
     }
 
     nextPlayerWeapon() {
@@ -134,5 +132,9 @@ export default class gameScene extends Phaser.Scene {
     updateBackground() {
         this.background.tilePositionY -= 1;
         this.background.tilePositionY %= this.background.height;
+    }
+
+    updateEnemySpawn() {
+        // empty method for now
     }
 }
