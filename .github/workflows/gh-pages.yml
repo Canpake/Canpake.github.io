@@ -27,6 +27,9 @@ jobs:
       - name: Build Personal
         run: hugo --minify --config="config_uni.toml"
 
+      - name: Setup homepage
+        run: cp index.html index.css ./public/
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
