@@ -412,7 +412,7 @@ JS Libraries
 <p>This is exactly what we do to include the JS code (as well as the CSS) of the JSXGraph library - the specific HTML that&rsquo;s used is:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>script</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text/javascript&#34;</span> <span class=na>charset</span><span class=o>=</span><span class=s>&#34;UTF-8&#34;</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
 <span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text/css&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css&#34;</span> <span class=p>/&gt;</span>
-</code></pre></div><p>If you try going to the site in the script&rsquo;s <code>src</code> attribute, you&rsquo;ll see the actual library code that&rsquo;s being referenced:<br>
+</code></pre></div><p>If you try going to the site in the script&rsquo;s <code>src</code> attribute, you&rsquo;ll see the actual library code that&rsquo;s being referenced: <br>
 <a class=gdoc-markdown__link href=https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js>https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js</a></p>
 <blockquote class="gdoc-hint info">
 <p>As you can see, the code on that site is basically unreadable. That&rsquo;s because it&rsquo;s been &ldquo;minified&rdquo; - all the comments and extra spacing have been removed, while variables have been shortened as much as possible. This isn&rsquo;t for security, but rather so that sites using it load quicker.</p>
@@ -432,9 +432,9 @@ A Simple JSXGraph Example
 <a data-clipboard-text=https://canpake.github.io/wiki/5-advanced-examples/#a-simple-jsxgraph-example class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor A Simple JSXGraph Example" href=#a-simple-jsxgraph-example><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
 </a>
 </h2>
-</div><p>Finally, let&rsquo;s go through a simple example of including a JSXGraph diagram on a question. I&rsquo;ll use the example of including a drawing panel at this link:<br>
+</div><p>Finally, let&rsquo;s go through a simple example of including a JSXGraph diagram on a question. I&rsquo;ll use the example of including a drawing panel at this link: <br>
 <a class=gdoc-markdown__link href="https://jsxgraph.org/wiki/index.php?title=Howto_include_JSXGraph_into_web_pages#Include_a_drawing_panel_into_the_HTML">https://jsxgraph.org/wiki/index.php?title=Howto_include_JSXGraph_into_web_pages#Include_a_drawing_panel_into_the_HTML</a></p>
-<p>And then I&rsquo;ll use the example of creating a circle on the drawing panel:<br>
+<p>And then I&rsquo;ll use the example of creating a circle on the drawing panel: <br>
 <a class=gdoc-markdown__link href=https://jsxgraph.org/wiki/index.php/Circle>https://jsxgraph.org/wiki/index.php/Circle</a></p>
 <p>Let&rsquo;s first begin by including the scripts required to load the JSXGraph library (this will be needed for every question that uses the library):</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>script</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text/javascript&#34;</span> <span class=na>charset</span><span class=o>=</span><span class=s>&#34;UTF-8&#34;</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>

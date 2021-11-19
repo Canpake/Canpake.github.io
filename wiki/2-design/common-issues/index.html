@@ -384,7 +384,7 @@ hidden-mobile" itemprop=breadcrumb>
 </div><p>This is a general problem with most computing languages, and you can replicate this one yourself with the following code:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>echo</span> <span class=mf>3.14159265</span> <span class=o>-</span> <span class=mf>3.14</span><span class=p>;</span>
 </code></pre></div><p>You&rsquo;ll find that PHP does something strange here and returns the value <code>0.0015926500000001</code>.</p>
-<p>Why it does this is explained at length here:<br>
+<p>Why it does this is explained at length here: <br>
 <a class=gdoc-markdown__link href=https://floating-point-gui.de/>https://floating-point-gui.de/</a></p>
 <p>But, in a nutshell, arithmetic in computers done in base 2 rather than base 10, which can lead to some rounding errors on decimals like these ones.</p>
 <p>Generally, this issue only arises occasionally when dealing with decimals - however, it&rsquo;s always important to be aware of this possibility. Once again, consider rounding your values or designing the question to avoid this situation entirely.</p>
