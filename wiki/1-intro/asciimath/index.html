@@ -3,9 +3,9 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=color-scheme content="light dark">
-<meta name=description content="We also have support for displaying mathematical expressions using the AsciiMath markup language - this was actually used in the example dynamic question you saw above.
+<meta name=description content="We also have support for displaying mathematical expressions using the AsciiMath markup language - this was used to display the quadratic equation in the example dynamic question displayed in Section 1.1.
 Any bit of text can be rendered as an AsciiMath expression by simply encasing it in backticks (the ` character).
- Note that this character is not the same as an apostrophe (')! You&rsquo;d typically find this symbol on the top-left of a QWERTY keyboard.">
+ Note that this character (`) is not the same as an apostrophe (')! You&rsquo;d typically find this symbol on the top-left of a QWERTY keyboard.">
 <title>1.4. Mathematical Expressions with AsciiMath | Dynamic Questions Guide</title>
 <link rel=icon href=https://canpake.github.io/wiki/favicon/favicon-32x32.png type=image/x-icon>
 <script src=https://canpake.github.io/wiki/js/darkmode-ce906ea916.min.js></script>
@@ -357,12 +357,14 @@ hidden-mobile" itemprop=breadcrumb>
 </div>
 <article class="gdoc-markdown gdoc-markdown__align--left">
 <h1>1.4. Mathematical Expressions with AsciiMath</h1>
-<p>We also have support for displaying mathematical expressions using the <a class=gdoc-markdown__link href=http://asciimath.org/>AsciiMath</a> markup language - this was actually used in the example dynamic question you saw above.</p>
+<p>We also have support for displaying mathematical expressions using the <a class=gdoc-markdown__link href=http://asciimath.org/>AsciiMath</a> markup language - this was used to display the quadratic equation in the example dynamic question displayed in <a class=gdoc-markdown__link href=https://canpake.github.io/wiki/1-intro/dynamic-questions>Section 1.1</a>.</p>
 <p>Any bit of text can be rendered as an AsciiMath expression by simply encasing it in backticks (the ` character).</p>
+<blockquote class="gdoc-hint warning">
 <blockquote>
-<p>Note that this character is not the same as an apostrophe (')! You&rsquo;d typically find this symbol on the top-left of a QWERTY keyboard.</p>
+<p>Note that this character (`) is not the same as an apostrophe (')! You&rsquo;d typically find this symbol on the top-left of a QWERTY keyboard.</p>
 </blockquote>
-<p>For instance, the example expression on the AsciiMath site can be included by writing the following directly in the text box itself:</p>
+</blockquote>
+<p>For instance, the example expression on the AsciiMath site can be included by writing the following directly in the <b>plain</b> text box itself:</p>
 <img src=https://i.imgur.com/lRNYpGq.png width=400px>
 <p>Equivalently, we could do this with the following PHP code:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=o>&lt;?</span><span class=nx>php</span>
@@ -370,8 +372,8 @@ hidden-mobile" itemprop=breadcrumb>
 <span class=cp>?&gt;</span><span class=err>
 </span></code></pre></div><p>In both cases, we&rsquo;d get the same output:</p>
 <img src=https://i.imgur.com/7CJzVMW.png width=400px>
-<p>Generally, using PHP to include AsciiMath in questions is more convenient, as most of the expressions we want to render will involve randomised constants. Ways of doing this will be covered more thoroughly in <a class=gdoc-markdown__link href=#31-basic-randomisation>3.1. Basic Randomisation</a>.</p>
-<blockquote>
+<p>When you&rsquo;re making questions, encasing any expressions or equations in AsciiMath should become a pretty common practice. Your questions will look more consistent and polished, while making them easier to read and understand!</p>
+<blockquote class="gdoc-hint info">
 <p><strong>Note:</strong> You may need to split very long AsciiMath expressions into muliple parts so that they are rendered on different lines if required. Otherwise, the expresion will render entirely on one line and go off-screen.</p>
 <p>Consider a case where we show how to fully expand the above expression step-by-step, and use the following code:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>echo</span> <span class=s2>&#34;Sum of sequence of cubes: `sum_(i=1)^n i^3 = ((n(n+1))/2)^2 = (n(n+1))^2/4 = (n^2 (n+1)^2)/4 = (n^2(n^2 + 2n + 1))/4 = (n^4 + 2n^3 + n^2)/4`&#34;</span><span class=p>;</span>
@@ -385,7 +387,8 @@ hidden-mobile" itemprop=breadcrumb>
 <span class=s2>&#34;`= (n^2 (n+1)^2)/4`&#34;</span> <span class=o>.</span>
 <span class=s2>&#34;`= (n^2(n^2 + 2n + 1))/4`&#34;</span> <span class=o>.</span> 
 <span class=s2>&#34;`= (n^4 + 2n^3 + n^2)/4`&#34;</span><span class=p>;</span>
-</code></pre></div><img src=https://i.imgur.com/8MX1GA2.png width=400px></blockquote>
+</code></pre></div><img src=https://i.imgur.com/8MX1GA2.png width=400px>
+</blockquote>
 </article>
 <div class="gdoc-page__footer flex flex-wrap justify-between">
 <span class=gdoc-page__nav>

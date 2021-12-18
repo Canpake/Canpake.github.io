@@ -4,8 +4,9 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=color-scheme content="light dark">
 <meta name=description content="Context: Volume of sphere given its SA This is an open-answer question that involves giving the surface area (SA) of a sphere, and asking for its volume.
-The general mathematics behind this is fairly straightforward. We can use the two formulas for the volume and surface area of a sphere, given radius \(r\):
-\[ \begin{aligned} SA &= 4 \pi r^2 \\ V &= {4 \pi r^3 \over 3} \\ \end{aligned} \]">
+Ultimately, we'd like to create a question that asks something along the lines of this:
+ A sphere has surface area [XXX]. What is its volume?&#34;
+ The general mathematics behind this is fairly straightforward. We can use the two formulas for the volume and surface area of a sphere, given radius \(r\):">
 <title>4.1. Example Question 1 | Dynamic Questions Guide</title>
 <link rel=icon href=https://canpake.github.io/wiki/favicon/favicon-32x32.png type=image/x-icon>
 <script src=https://canpake.github.io/wiki/js/darkmode-ce906ea916.min.js></script>
@@ -359,6 +360,10 @@ hidden-mobile" itemprop=breadcrumb>
 <h1>4.1. Example Question 1</h1>
 <h2 id=context-volume-of-sphere-given-its-sa>Context: Volume of sphere given its SA</h2>
 <p>This is an <strong>open-answer</strong> question that involves giving the surface area (SA) of a sphere, and asking for its volume.</p>
+<p>Ultimately, we'd like to create a question that asks something along the lines of this:</p>
+<blockquote>
+<p>A sphere has surface area [XXX]. What is its volume?"</p>
+</blockquote>
 <p>The general mathematics behind this is fairly straightforward. We can use the two formulas for the volume and surface area of a sphere, given radius <span class=math>\(r\)</span>:</p>
 <p><span class=math>\[
 \begin{aligned}
@@ -376,6 +381,7 @@ V = {4\pi \over 3} \cdot \bigg( \sqrt{{SA \over 4 \pi}} \bigg)^3
 \]</span></p>
 <p>This looks a bit messy - but in fact, there's a pretty neat way to go about generating values for this question!</p>
 <h2 id=approach>Approach</h2>
+<p>For this question, we'll need to generate values for a sphere's surface area (question) and volume (answer).</p>
 <p>The first thing to note is the formulas for SA and Volume: <br>
 <strong>If radius is a whole number</strong>, surface area and volume may be expressed <strong>exactly in terms of pi</strong>.</p>
 <p>So rather than generating surface area or volume, what we could instead do is <strong>generate an integer value for the radius</strong>, and calculate the other resulting values.</p>
