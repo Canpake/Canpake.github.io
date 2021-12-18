@@ -14,4 +14,6 @@ An example of a dynamic question, viewed several times, is shown below:
 
 As you can see in the above images, the question changes each time the question is viewed, with different answers and solutions to go with the quadratic equation. 
 
-> There's a lot of good uses for dynamic questions - for one, they're an efficient way of providing diverse experiences to students as they build mathematical skills. More context behind the 'why' on these questions will be covered in section [2.2.1. Context](#221-context). 
+{{<hint info>}}
+There's a lot of good uses for dynamic questions - for one, they're an efficient way of providing diverse experiences to students as they build mathematical skills. More context behind the 'why' on these questions will be covered in section [2.2.1. Context](#221-context). 
+{{</hint>}}
