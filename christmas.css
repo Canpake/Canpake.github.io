@@ -1,0 +1,19 @@
+html {
+    font-family: Roboto, sans-serif;
+    color: #c2c2c2;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(200deg, #1a243f, #2a3a59);
+    height: 100%;
+}
+
+#center_text {
+    font-size: 3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2);
+}

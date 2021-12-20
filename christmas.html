@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Merry Christmas!</title>
+    <link rel="stylesheet" href="christmas.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+<div id="center_text">&#9731</div>
+
+<script>
+    anime({
+      targets: '#center_text',
+      keyframes: [
+        {scale: 4, rotate: 360, endDelay: 300},
+        {scale: 2, rotate: 0, endDelay: 300}
+      ],
+      duration: 3000,
+      easing: 'easeOutElastic(1, 0.8)',
+      loop: true
+    });
+</script>
+</body>
+</html>
