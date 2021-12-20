@@ -28,7 +28,7 @@ jobs:
         run: hugo --minify --config="config_uni.toml"
 
       - name: Setup homepage
-        run: cp index.html index.css ./public/
+        run: cp -a base/. ./public/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
