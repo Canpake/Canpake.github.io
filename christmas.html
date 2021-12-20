@@ -7,19 +7,98 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </head>
 <body>
-<div id="center_text">&#9731</div>
+
+<div id="canvas" style="height: 100%; width: 100%;">
+    <div id="center_text" onmouseover="text_anim_on()" onmouseout="text_anim_off()">
+        &#9731
+    </div>
+    <div id="snowflakes">
+        <div class="snowflake" style="visibility: hidden"></div>
+    </div>
+    <div id="controls">
+        <button onclick="snowflake_anim.play()">Start</button>
+        <button onclick="snowflake_anim.pause()">Stop</button>
+    </div>
+    <svg style="visibility: hidden">
+        <path id="snowpath1" d="M 0 0 C -113 515 229 357 0 1000"></path>
+        <path id="snowpath2" d="M 0 0 C 583 366 165 700 562 1000"></path>
+        <path id="snowpath3" d="M 0 0 C -693 219 -229 714 -625 1000"></path>
+        <path id="snowpath4" d="M 0 0 C -316 154 60 581 -40 1000"></path>
+        <path id="snowpath5" d="M 0 0 C 175 327 323 82 168 1000"></path>
+    </svg>
+</div>
+
 
 <script>
-    anime({
+    /** Background **/
+    // Options
+    const pathCount = 5;
+    const snowflakes = 50;
+
+    // Register snowflake paths
+    const snowPaths = [];
+    for (let i = 1; i <= pathCount; i++) {
+      snowPaths.push(anime.path('#snowpath' + i))
+    }
+    // Create snowflakes
+    let snowflake = document.querySelector('.snowflake');
+    let snowflake_ctr = document.querySelector('#snowflakes');
+    for (let i = 0; i < snowflakes; i++) {
+      let new_snowflake = snowflake.cloneNode(true);
+      new_snowflake.style.left = (Math.random() * 100) + '%';
+      new_snowflake.style.visibility = 'visible';
+
+      let size = Math.floor(3 + Math.random()*5);
+      new_snowflake.style.width = size + 'px';
+      new_snowflake.style.height = size + 'px';
+      new_snowflake.style.opacity = 0.3 + Math.random() * 0.4;
+      snowflake_ctr.appendChild(new_snowflake);
+    }
+
+    let snowflake_anim = anime({
+      targets: '.snowflake',
+      duration: 10000,
+      translateX: function() {
+        return snowPaths[anime.random(0, snowPaths.length-1)]('x');
+      },
+      translateY: ['0', '110vh'],
+      easing: 'linear',
+      loop: true,
+      delay: anime.stagger(300),
+    })
+
+    // text?
+    let text_anim = anime({
       targets: '#center_text',
-      keyframes: [
-        {scale: 4, rotate: 360, endDelay: 300},
-        {scale: 2, rotate: 0, endDelay: 300}
-      ],
-      duration: 3000,
-      easing: 'easeOutElastic(1, 0.8)',
-      loop: true
+      scale: [2, 4],
+      rotateY: { value: [0, 180],
+                duration: 500 },
+      duration: 200,
+      easing: 'linear',
+      autoplay: false
     });
+
+    // let text_anim_off = anime({
+    //   targets: '#center_text',
+    //   scale: [4, 2],
+    //   rotateY: { value: [360, 0],
+    //              duration: 3000 },
+    //   duration: 1000,
+    //   easing: 'easeOutElastic(0.5, 0.8)',
+    //   autoplay: false
+    // });
+
+    let text_anim_on = () => {
+      if (text_anim.reversed) { text_anim.reverse(); }
+      // text_anim.easing = 'easeOutElastic(0.5, 0.8)';
+      text_anim.play();
+    }
+
+    let text_anim_off = () => {
+      // text_anim.easing = 'easeInElastic(0.5, 0.8)';
+      if (!text_anim.reversed) { text_anim.reverse(); }
+      text_anim.play();
+    }
 </script>
 </body>
 </html>
