@@ -11,7 +11,55 @@ body {
     overflow: hidden;
 }
 
-.snowflake {
+.text_container {
+    width: 100%;
+    margin: 0;
+    pointer-events: none;
+}
+
+#christmas_svg {
+    position: relative;
+    display: block;
+    z-index: 1;
+    margin: 2em auto;
+    fill: none;
+    stroke: white;
+    stroke-width: 1mm;
+
+    stroke-dasharray: 500px;
+    /*stroke-dashoffset: 300px;*/
+}
+
+.intro_text {
+    position: relative;
+    display: block;
+    margin: auto;
+    text-align: center;
+    opacity: 0;
+    z-index: 1;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.intro_button {
+    border: 1px solid grey;
+    filter: opacity(0.5);
+    padding: 0.5em;
+    width: 15em;
+    border-radius: 1em;
+
+    pointer-events: all;
+}
+.intro_button:hover {
+    filter: opacity(0.7);
+}
+
+#snowflake_template {
     width: 10px;
     height: 10px;
     background: white;
@@ -20,7 +68,36 @@ body {
     position: absolute;
     top: -10px;
     left: 50%;
-    z-index: -1;
+}
+
+#image_template {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-size: 800px;
+    background: rgba(200, 200, 200, 0.5) no-repeat center;
+
+    position: absolute;
+    top: -10px;
+    left: 50%;
+}
+
+.particle {
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    visibility: hidden;
+    z-index: 2;
+}
+
+.floating_image:not(.floating_image_opaque) {
+    filter: opacity(0.7);
+}
+.floating_image:not(.floating_image_opaque):hover {
+    filter: opacity(0.8);
 }
 
 #center_text {
