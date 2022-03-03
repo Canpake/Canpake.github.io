@@ -24,3 +24,8 @@ When you empty out your AUGMENT deck (indicated when the REMAIN counter reaches 
 Your AUGMENT gauge increases naturally over time, but you can raise it in 2 other ways:
 * Collecting the pickups from destroyed enemies
 * Getting close to enemy bullets without being hit, indicated by a small 'graze' icon
+
+### Survey?
+I'd like to do a user study of sorts where I record down people's thoughts on the game. If you have several minutes to spare, I'd really appreciate it if you could let me know how you found it!
+
+The link to the related survey for this game can be found [here](https://docs.google.com/forms/d/e/1FAIpQLScSIKR9M09_xqJSxgVmgm4Dxmqvy2-SpXYpjyEOLk0iPG_4Jg/viewform).
